@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">QuizGame</string>
+    <string name="question_text">"What is Kevin's favorite food?"</string>
+    <string name="button_one">"Meatballs"</string>
+    <string name="button_two">"Hot Dogs"</string>
+
+</resources>
