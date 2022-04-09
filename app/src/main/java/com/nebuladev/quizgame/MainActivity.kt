@@ -1,10 +1,13 @@
 package com.nebuladev.quizgame
 
+import android.app.PendingIntent.getActivity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity()
 {
@@ -20,11 +23,10 @@ class MainActivity : AppCompatActivity()
         buttonTwo = findViewById(R.id.answer_two)
         buttonTwo.setOnClickListener{
             var text : TextView = findViewById(R.id.txtQuestion)
-            text.text = "Testing button Two"
+
         }
         buttonOne.setOnClickListener{
-            var text : TextView = findViewById(R.id.txtQuestion)
-            text.text = "Testing button One"
+
         }
 
     }

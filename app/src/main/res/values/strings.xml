@@ -3,5 +3,7 @@
     <string name="question_text">"What is Kevin's favorite food?"</string>
     <string name="button_one">"Meatballs"</string>
     <string name="button_two">"Hot Dogs"</string>
+    <string name="button_three">"Turkey"</string>
+    <string name="button_four">"Bacon"</string>
 
 </resources>
