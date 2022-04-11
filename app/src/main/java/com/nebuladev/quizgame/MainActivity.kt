@@ -3,6 +3,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import kotlin.math.roundToInt
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,8 +26,10 @@ class MainActivity : AppCompatActivity() {
         buttonFour = findViewById(R.id.answer_four)
         textOne = findViewById(R.id.txtQuestion)
 
-
-        var questionAndAnswer : List<String> = question1.question(0);
+        var listLength = question1.getQuestionLength()
+        var random = Math.random() * listLength
+        var rndInt = random.roundToInt()
+        var questionAndAnswer : List<String> = question1.question(rndInt);
         textOne.text = questionAndAnswer[0]
 
         var answerOrder = rndOrder.randomAnswers()
