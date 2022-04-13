@@ -116,6 +116,10 @@ class MainActivity : AppCompatActivity() {
             } else {
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
+                buttonFour.setBackgroundColor(getColor(R.color.red))
+
+                buttonFour.setBackgroundColor(getColor(R.color.light_blue))
+
                 nextQuestion()
 
             }

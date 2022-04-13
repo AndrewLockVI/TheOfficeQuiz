@@ -5,16 +5,19 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="@drawable/paperbackground"
     >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0/0"
-        android:translationX="-160dp"
-        android:translationY="-30dp"
-        android:textSize="50dp"
+        android:translationX="140dp"
+        android:translationY="-45dp"
+        android:textSize="40dp"
         android:id="@+id/txtScore"
+        android:fontFamily="sans-serif-light"
+
         />
 
     <TextView
@@ -26,6 +29,7 @@
         android:padding="15dp"
         android:gravity="center"
         android:translationY="-50dp"
+        android:fontFamily="sans-serif-condensed"
 
         />
 
@@ -47,7 +51,13 @@
             android:text="@string/button_two"
             android:textSize="35dp"
             android:translationY="0dp"
-            app:cornerRadius="10dp" />
+            app:cornerRadius="10dp"
+            android:textAllCaps="false"
+
+
+
+
+            />
         <View
             android:layout_width="10dp"
             android:layout_height="20dp"/>
@@ -60,7 +70,8 @@
             android:text="@string/button_one"
             android:textSize="35dp"
             android:translationY="0dp"
-            app:cornerRadius="10dp" />
+            app:cornerRadius="10dp"
+            android:textAllCaps="false"/>
     </LinearLayout>
 
         <LinearLayout
@@ -79,7 +90,7 @@
                 android:text="@string/button_three"
                 android:textSize="35dp"
                 android:translationY="0dp"
-
+                android:textAllCaps="false"
 
                 app:cornerRadius="10dp" />
             <View
@@ -94,7 +105,9 @@
                 android:text="@string/button_four"
                 android:textSize="35dp"
                 android:translationY="0dp"
-                app:cornerRadius="10dp" />
+                app:cornerRadius="10dp"
+                android:textAllCaps="false"
+                />
         </LinearLayout>
 
 </LinearLayout>

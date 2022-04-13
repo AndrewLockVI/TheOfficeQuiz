@@ -56,7 +56,7 @@ class Question
         var question37 = listOf("How much does Michael's plasma TV cost?" , "$200" , "$100" , "$500" , "$250")
         var question38 = listOf("What is Roy's brother's name?" , "Kenny" , "Nick" , "Troy" , "Chris")
         var question39 = listOf("Who was Pam's replacement when she had the baby?" , "Kathy" , "Katie" , "Karen" , "Katherine")
-        var question40 = listOf("What outlet store does Dwight tell Jan to go to?" , "Liz Claiborne" , "Anne Taylor" , "JCPenny" , "Adrianna Papell")
+        var question40 = listOf("What outlet store does Dwight tell Jan to go to?" , "Liz Claiborne" , "Anne Taylor" , "Target" , "Adrianna Papell")
         var question41 = listOf("What does Devon dress up as on Halloween?" , "Homeless man" , "Vampire" , "Mummy" , "Zombie")
         var question42 = listOf("What does Michael put in Toby's desk to frame him?" , "Caprese Salad" , "Spinach" , "Frisee Salad" , "Caesar Salad")
         var question43 = listOf("What clothing does Michael have dry cleaned?" , "Jeans" , "Ties" , "Socks" , "Suit Jacket")
