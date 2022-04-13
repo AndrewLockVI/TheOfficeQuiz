@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
     private var click: ClickChange = ClickChange();
     private lateinit var score: TextView;
     private var answer = false
+    private var rndInt : Int = 0
+    private var questionsUsed : List<Int> = listOf()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,19 +36,9 @@ class MainActivity : AppCompatActivity() {
         buttonFour = findViewById(R.id.answer_four)
         textOne = findViewById(R.id.txtQuestion)
         score = findViewById(R.id.txtScore)
-
-        var listLength = question1.getQuestionLength()
-        var random = Math.random() * listLength
-        var rndInt = random.roundToInt()
-        var questionAndAnswer: List<String> = question1.question(rndInt);
-        textOne.text = questionAndAnswer[0]
+        nextQuestion()
 
 
-        var answerOrder = rndOrder.randomAnswers()
-        buttonOne.text = questionAndAnswer[answerOrder[0]]
-        buttonTwo.text = questionAndAnswer[answerOrder[1]]
-        buttonThree.text = questionAndAnswer[answerOrder[2]]
-        buttonFour.text = questionAndAnswer[answerOrder[3]]
 
 
         buttonOne.setOnClickListener()
@@ -58,11 +50,12 @@ class MainActivity : AppCompatActivity() {
                 score.text = intScore.toString() + "/" + intQuestion.toString()
                 answer = false
                 //     click.changeClick(buttonOne , buttonTwo , buttonThree , buttonFour)
+                nextQuestion()
 
             } else {
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
-
+                nextQuestion()
             }
 
 
@@ -76,11 +69,13 @@ class MainActivity : AppCompatActivity() {
                 score.text = intScore.toString() + "/" + intQuestion.toString()
                 answer = false
                 //    click.changeClick(buttonOne , buttonTwo , buttonThree , buttonFour)
+                nextQuestion()
 
             } else {
 
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
+                nextQuestion()
 
 
             }
@@ -96,10 +91,12 @@ class MainActivity : AppCompatActivity() {
                 score.text = intScore.toString() + "/" + intQuestion.toString()
                 answer = false
                 //   click.changeClick(buttonOne , buttonTwo , buttonThree , buttonFour)
+                nextQuestion()
 
             } else {
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
+                nextQuestion()
 
             }
 
@@ -114,10 +111,12 @@ class MainActivity : AppCompatActivity() {
                 score.text = intScore.toString() + "/" + intQuestion.toString()
                 answer = false
                 //   click.changeClick(buttonOne , buttonTwo , buttonThree , buttonFour)
+                nextQuestion()
 
             } else {
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
+                nextQuestion()
 
             }
 
@@ -126,4 +125,30 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+    fun nextQuestion()
+    {
+        var listLength = question1.getQuestionLength()
+
+        while(rndInt == 0 || questionsUsed.contains(rndInt))
+        {
+            var random = Math.random() * listLength
+            rndInt = random.roundToInt()
+        }
+        questionsUsed = questionsUsed + rndInt
+
+
+
+
+        var questionAndAnswer: List<String> = question1.question(rndInt);
+        textOne.text = questionAndAnswer[0]
+
+
+        var answerOrder = rndOrder.randomAnswers()
+        buttonOne.text = questionAndAnswer[answerOrder[0]]
+        buttonTwo.text = questionAndAnswer[answerOrder[1]]
+        buttonThree.text = questionAndAnswer[answerOrder[2]]
+        buttonFour.text = questionAndAnswer[answerOrder[3]]
+    }
+
+
 }
