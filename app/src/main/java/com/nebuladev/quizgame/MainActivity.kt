@@ -165,17 +165,13 @@ class MainActivity : AppCompatActivity() {
     fun animationControl()
     {
         greenCorrect()
-        animationRun(buttonOne)
-        animationRun(buttonTwo)
-        animationRun(buttonThree)
-        animationRun(buttonFour)
+        animationRun()
+
 
     }
 
-    fun animationRun(button : Button)
+    fun animationRun()
     {
-
-
 
         object : CountDownTimer(500, 1000) {
             override fun onTick(p0: Long)
@@ -187,11 +183,16 @@ class MainActivity : AppCompatActivity() {
                     duration = 1000
                     alpha(0f)
                 }
-                button.animate().apply {
-                    duration = 1000
-                    alpha(0f)
-                    translationX(600f)
 
+                var buttons : List<Button> = listOf(buttonOne,buttonTwo,buttonThree,buttonFour)
+                var count = 0
+                while(count < 4){
+                    buttons[count].animate().apply {
+                        duration = 1000
+                        alpha(0f)
+                        translationX(1500f)
+                        count += 1
+                    }
                 }
             }
 
@@ -207,13 +208,19 @@ class MainActivity : AppCompatActivity() {
                     duration = 0
                     alpha(1f)
                 }
-                button.animate().apply{
-                    duration = 0
-                    alpha(1f)
-                    translationX(0f)
-                    nextQuestion()
-                    button.setBackgroundColor(getColor(R.color.light_blue))
+                var buttons : List<Button> = listOf(buttonOne,buttonTwo,buttonThree,buttonFour)
+                var count = 0
+                while(count < 4)
+                {
+                    buttons[count].animate().apply{
+                        duration = 0
+                        alpha(1f)
+                        translationX(0f)
+                        buttons[count].setBackgroundColor(getColor(R.color.light_blue))
+                        count += 1
+                    }
                 }
+                nextQuestion()
             }
 
 
