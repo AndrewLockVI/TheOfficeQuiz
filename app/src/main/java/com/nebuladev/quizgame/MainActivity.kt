@@ -1,10 +1,14 @@
 package com.nebuladev.quizgame
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.View
+import android.view.animation.Animation
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import java.util.*
+import kotlin.concurrent.thread
 import kotlin.math.roundToInt
 
 
@@ -31,6 +35,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         buttonOne = findViewById(R.id.answer_one)
+
+
         buttonTwo = findViewById(R.id.answer_two)
         buttonThree = findViewById(R.id.answer_three)
         buttonFour = findViewById(R.id.answer_four)
@@ -50,12 +56,13 @@ class MainActivity : AppCompatActivity() {
                 score.text = intScore.toString() + "/" + intQuestion.toString()
                 answer = false
                 //     click.changeClick(buttonOne , buttonTwo , buttonThree , buttonFour)
-                nextQuestion()
+                animationControl()
 
             } else {
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
-                nextQuestion()
+                buttonOne.setBackgroundColor(getColor(R.color.red))
+                animationControl()
             }
 
 
@@ -69,13 +76,14 @@ class MainActivity : AppCompatActivity() {
                 score.text = intScore.toString() + "/" + intQuestion.toString()
                 answer = false
                 //    click.changeClick(buttonOne , buttonTwo , buttonThree , buttonFour)
-                nextQuestion()
+                animationControl()
 
             } else {
 
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
-                nextQuestion()
+                buttonTwo.setBackgroundColor(getColor(R.color.red))
+                animationControl()
 
 
             }
@@ -91,12 +99,13 @@ class MainActivity : AppCompatActivity() {
                 score.text = intScore.toString() + "/" + intQuestion.toString()
                 answer = false
                 //   click.changeClick(buttonOne , buttonTwo , buttonThree , buttonFour)
-                nextQuestion()
+                animationControl()
 
             } else {
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
-                nextQuestion()
+                buttonThree.setBackgroundColor(getColor(R.color.red))
+                animationControl()
 
             }
 
@@ -110,17 +119,18 @@ class MainActivity : AppCompatActivity() {
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
                 answer = false
+                animationControl()
                 //   click.changeClick(buttonOne , buttonTwo , buttonThree , buttonFour)
-                nextQuestion()
 
-            } else {
+            } else
+            {
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
                 buttonFour.setBackgroundColor(getColor(R.color.red))
+                animationControl()
 
-                buttonFour.setBackgroundColor(getColor(R.color.light_blue))
 
-                nextQuestion()
+
 
             }
 
@@ -129,6 +139,88 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+
+    fun greenCorrect()
+    {
+
+        if(checkAnswer.answerCheck(rndInt, buttonFour.text.toString()))
+        {
+            buttonFour.setBackgroundColor(getColor(R.color.green))
+        }
+        else if(checkAnswer.answerCheck(rndInt, buttonTwo.text.toString()))
+        {
+            buttonTwo.setBackgroundColor(getColor(R.color.green))
+        }
+        else if(checkAnswer.answerCheck(rndInt, buttonThree.text.toString()))
+        {
+            buttonThree.setBackgroundColor(getColor(R.color.green))
+        }
+        else if(checkAnswer.answerCheck(rndInt, buttonOne.text.toString()))
+        {
+            buttonOne.setBackgroundColor(getColor(R.color.green))
+        }
+    }
+
+    fun animationControl()
+    {
+        greenCorrect()
+        animationRun(buttonOne)
+        animationRun(buttonTwo)
+        animationRun(buttonThree)
+        animationRun(buttonFour)
+
+    }
+
+    fun animationRun(button : Button)
+    {
+
+
+
+        object : CountDownTimer(500, 1000) {
+            override fun onTick(p0: Long)
+            {
+            }
+            override fun onFinish()
+            {
+                textOne.animate().apply {
+                    duration = 1000
+                    alpha(0f)
+                }
+                button.animate().apply {
+                    duration = 1000
+                    alpha(0f)
+                    translationX(600f)
+
+                }
+            }
+
+
+        }.start()
+        object : CountDownTimer(1500, 1000) {
+            override fun onTick(p0: Long)
+            {
+            }
+            override fun onFinish()
+            {
+                textOne.animate().apply {
+                    duration = 0
+                    alpha(1f)
+                }
+                button.animate().apply{
+                    duration = 0
+                    alpha(1f)
+                    translationX(0f)
+                    nextQuestion()
+                    button.setBackgroundColor(getColor(R.color.light_blue))
+                }
+            }
+
+
+        }.start()
+    }
+
+
     fun nextQuestion()
     {
         var listLength = question1.getQuestionLength()
@@ -141,6 +233,16 @@ class MainActivity : AppCompatActivity() {
         questionsUsed = questionsUsed + rndInt
 
 
+
+
+        buttonOne.x= 00f
+        buttonThree.translationX = 00f
+        buttonTwo.translationX = 00f
+        buttonFour.translationX = 00f
+        buttonOne.alpha = 1f
+        buttonTwo.alpha = 1f
+        buttonThree.alpha = 1f
+        buttonFour.alpha = 1f
 
 
         var questionAndAnswer: List<String> = question1.question(rndInt);

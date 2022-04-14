@@ -35,7 +35,7 @@ class Question
         var question16 = listOf("What is Dwight's favorite movie?" , "The Crow" , "Lord of the Rings" , "Harry Potter" , "Superman")
         var question17 = listOf("What does Michael return with after his trip to Jamaica?" , "Beads in his hair" , "Dreadlocks" , "Goatee" , "Beard")
         var question18 = listOf("How many push-ups does Stanley do to beat Michael?" , "26" , "30" , "40" , "35")
-        var question19 = listOf("What is the name of Jim's uprising group?" , "The First" , "The Rebellion" , "Paper Pushers" , "The Social Club")
+        var question19 = listOf("What is the name of Jim's uprising group?" , "The Fist" , "The Rebellion" , "Paper Pushers" , "The Social Club")
         var question20 = listOf("What is Andy known as after his singing audition goes viral?" , "Baby Wawa" , "Sit There and Cry Guy" , "Audition Guy" , "Cornell Crier")
         var question21 = listOf("What passport other than a US one does Creed have?" , "Swiss" , "German" , "Canadian" , "Australian")
         var question22 = listOf("How many cousins does Dwight have?" , "70" , "10" , "25" , "3")

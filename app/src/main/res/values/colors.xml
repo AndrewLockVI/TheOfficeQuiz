@@ -10,5 +10,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="white_bg">#F5F5F5</color>
+    <color name="green">#03C04A</color>
+    <color name="grey_text">#69797E</color>
 
 </resources>
