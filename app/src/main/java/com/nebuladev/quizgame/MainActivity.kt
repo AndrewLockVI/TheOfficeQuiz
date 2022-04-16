@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.concurrent.thread
 import kotlin.math.roundToInt
 
@@ -171,7 +172,7 @@ class MainActivity : AppCompatActivity() {
     fun animationRun()
     {
 
-            val intent : Intent = Intent(this,LandingPage::class.java)
+            val intent : Intent = Intent(this,EndScreen::class.java)
 
         object : CountDownTimer(500, 1000) {
             override fun onTick(p0: Long)
@@ -206,8 +207,10 @@ class MainActivity : AppCompatActivity() {
             }
             override fun onFinish()
             {
-                if(questionsUsed.size > 2)
+                if(questionsUsed.size == 2)
                 {
+
+                    intent.putExtra("score" , score.text)
                     startActivity(intent)
                 }
                 else
