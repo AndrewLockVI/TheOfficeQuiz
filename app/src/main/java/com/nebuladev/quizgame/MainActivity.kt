@@ -1,4 +1,5 @@
 package com.nebuladev.quizgame
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -55,7 +56,6 @@ class MainActivity : AppCompatActivity() {
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
                 answer = false
-                //     click.changeClick(buttonOne , buttonTwo , buttonThree , buttonFour)
                 animationControl()
 
             } else {
@@ -75,7 +75,6 @@ class MainActivity : AppCompatActivity() {
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
                 answer = false
-                //    click.changeClick(buttonOne , buttonTwo , buttonThree , buttonFour)
                 animationControl()
 
             } else {
@@ -98,7 +97,6 @@ class MainActivity : AppCompatActivity() {
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
                 answer = false
-                //   click.changeClick(buttonOne , buttonTwo , buttonThree , buttonFour)
                 animationControl()
 
             } else {
@@ -120,7 +118,6 @@ class MainActivity : AppCompatActivity() {
                 score.text = intScore.toString() + "/" + intQuestion.toString()
                 answer = false
                 animationControl()
-                //   click.changeClick(buttonOne , buttonTwo , buttonThree , buttonFour)
 
             } else
             {
@@ -164,6 +161,7 @@ class MainActivity : AppCompatActivity() {
 
     fun animationControl()
     {
+        click.changeClick(buttonOne , buttonTwo , buttonThree , buttonFour)
         greenCorrect()
         animationRun()
 
@@ -173,12 +171,15 @@ class MainActivity : AppCompatActivity() {
     fun animationRun()
     {
 
+            val intent : Intent = Intent(this,LandingPage::class.java)
+
         object : CountDownTimer(500, 1000) {
             override fun onTick(p0: Long)
             {
             }
             override fun onFinish()
             {
+
                 textOne.animate().apply {
                     duration = 1000
                     alpha(0f)
@@ -198,21 +199,27 @@ class MainActivity : AppCompatActivity() {
 
 
         }.start()
+
         object : CountDownTimer(1500, 1000) {
             override fun onTick(p0: Long)
             {
             }
             override fun onFinish()
             {
+                if(questionsUsed.size > 2)
+                {
+                    startActivity(intent)
+                }
+                else
+                {
                 textOne.animate().apply {
                     duration = 0
                     alpha(1f)
                 }
                 var buttons : List<Button> = listOf(buttonOne,buttonTwo,buttonThree,buttonFour)
                 var count = 0
-                while(count < 4)
-                {
-                    buttons[count].animate().apply{
+                while(count < 4) {
+                    buttons[count].animate().apply {
                         duration = 0
                         alpha(1f)
                         translationX(0f)
@@ -220,7 +227,9 @@ class MainActivity : AppCompatActivity() {
                         count += 1
                     }
                 }
+                }
                 nextQuestion()
+                click.changeClick(buttonOne , buttonTwo , buttonThree , buttonFour)
             }
 
 
@@ -230,6 +239,7 @@ class MainActivity : AppCompatActivity() {
 
     fun nextQuestion()
     {
+
         var listLength = question1.getQuestionLength()
 
         while(rndInt == 0 || questionsUsed.contains(rndInt))
