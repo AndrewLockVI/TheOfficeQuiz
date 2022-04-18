@@ -147,26 +147,26 @@ class Question
         var question128 = listOf("What is Holly's middle name?" , "Partridge" , "Adeline" , "Noelle" , "Ada")
         var question129 = listOf("What is Deangelo's middle name?" , "Jeremitrius" , "Julian" , "Raine" , "Rocco")
         var question130 = listOf("What is Ryan's son's name?" , "Drake" , "Blake" , "Ricky" , "Cedric")
-        var question131 = listOf("" , "" , "" , "" , "")
-        var question132 = listOf("" , "" , "" , "" , "")
-        var question133 = listOf("" , "" , "" , "" , "")
-        var question134 = listOf("" , "" , "" , "" , "")
-        var question135 = listOf("" , "" , "" , "" , "")
-        var question136 = listOf("" , "" , "" , "" , "")
-        var question137 = listOf("" , "" , "" , "" , "")
-        var question138 = listOf("" , "" , "" , "" , "")
-        var question139 = listOf("" , "" , "" , "" , "")
-        var question140 = listOf("" , "" , "" , "" , "")
-        var question141 = listOf("" , "" , "" , "" , "")
-        var question142 = listOf("" , "" , "" , "" , "")
-        var question143 = listOf("" , "" , "" , "" , "")
-        var question144 = listOf("" , "" , "" , "" , "")
-        var question145 = listOf("" , "" , "" , "" , "")
-        var question146 = listOf("" , "" , "" , "" , "")
-        var question147 = listOf("" , "" , "" , "" , "")
-        var question148 = listOf("" , "" , "" , "" , "")
-        var question149 = listOf("" , "" , "" , "" , "")
-        var question150 = listOf("" , "" , "" , "" , "")
+        var question131 = listOf("Who came up with the \"Big Mac\" idea?" , "Kevin" , "Ryan" , "Karen" , "Jim")
+        var question132 = listOf("Who pulls out the cable connection at Gabe's party?" , "Michael" , "Dwight" , "Andy" , "Erin")
+        var question133 = listOf("What Dundie does Pam win?" , "Whitest Sneakers" , "Receptionist" , "Best Artist" , "Fine Work")
+        var question134 = listOf("What Dundie does Kelly win?" , "Spicy Curry" , "Whitest Sneakers" , "Ethnic" , "Gossip")
+        var question135 = listOf("What Dundie does Jim win?" , "Best Dad" , "Tallest" , "Best Dressed" , "Big Tuna")
+        var question136 = listOf("What Dundie does Stanley win?" , "Diabetes" , "Crossword" , "Blackest" , "Heart Attack")
+        var question137 = listOf("How did Ed Truck die?" , "Decapitation" , "Shot in the Foot" , "Bear Attack" , "Suicide")
+        var question138 = listOf("How did Robert Mifflin die?" , "Suicide" , "Decapitation" , "Baler Accident" , "Poisoning")
+        var question139 = listOf("Which branch does Jim get transferred to?" , "Stamford" , "Utica" , "Nashua" , "Syracuse")
+        var question140 = listOf("Which branch does Holly get transferred to?" , "Nashua" , "New York" , "Stamford" , "Akron")
+        var question141 = listOf("Where does Michael move with Holly?" , "Boulder" , "Nashua" , "New York" , "Austin")
+        var question142 = listOf("Who gives Dwight his holster as a gift?" , "Uncle Honk" , "Mose" , "Aunt Shirley" , "Jo Bennett")
+        var question143 = listOf("What does Sabre sell?" , "Printers" , "Computers" , "Monitors" , "Wallets")
+        var question144 = listOf("Who becomes the new CEO of Sabre?" , "Robert California" , "David Wallace" , "Gabe Lewis" , "Michael Scott")
+        var question145 = listOf("Who teaches Nellie how to drive?" , "Pam" , "Kelly" , "Andy" , "Ryan")
+        var question146 = listOf("Where does Ryan work after being fired?" , "Bowling Alley" , "Laundromat" , "Restaurant" , "Prince Family Paper")
+        var question147 = listOf("What is the name of the concierge?" , "Marie" , "Marcus" , "Mary" , "Hollis")
+        var question148 = listOf("What dish does Kevin make for the office?" , "Chilli" , "Soup" , "Meatballs" , "Donuts")
+        var question149 = listOf("Who hits Meredith with a football?" , "Pam" , "Phyllis" , "Toby" , "Dwight")
+        var question150 = listOf("Who beats Michael in the first round of poker?" , "Toby" , "Phyllis" , "Kevin" , "Roy")
 
 
 
@@ -177,7 +177,7 @@ class Question
 
 
 
-        val questionBank = listOf(question1, question2 , question3, question4, question5 , question6 ,question7 ,question8 ,question9 ,question10,question11,question12,question13,question14,question15,question16,question17,question18,question19,question20,question21,question22,question23 , question24 , question25, question26 , question27, question28 , question29, question30, question31,question32,question33,question34,question35,question36,question37,question38,question39,question40,question41,question42,question43,question44,question45,question46,question47,question48,question49,question50,question51,question52,question53,question54,question55,question56,question57,question58,question59,question60,question61,question62,question63,question64,question65,question66,question67,question68,question69,question70, question71,question72,question73,question74,question75,question76,question77,question78,question79,question80,question81,question82,question83,question84,question85,question86,question87,question88,question89,question90,question91,question92,question93,question94,question95,question96,question97,question98,question99,question100,question101,question102,question103,question104,question105,question106,question107,question108,question109,question110,question111,question112,question113,question114,question115,question116,question117,question118,question119,question120,question121,question122,question123,question124,question125,question126,question127,question128,question129,question130)
+        val questionBank = listOf(question1, question2 , question3, question4, question5 , question6 ,question7 ,question8 ,question9 ,question10,question11,question12,question13,question14,question15,question16,question17,question18,question19,question20,question21,question22,question23 , question24 , question25, question26 , question27, question28 , question29, question30, question31,question32,question33,question34,question35,question36,question37,question38,question39,question40,question41,question42,question43,question44,question45,question46,question47,question48,question49,question50,question51,question52,question53,question54,question55,question56,question57,question58,question59,question60,question61,question62,question63,question64,question65,question66,question67,question68,question69,question70, question71,question72,question73,question74,question75,question76,question77,question78,question79,question80,question81,question82,question83,question84,question85,question86,question87,question88,question89,question90,question91,question92,question93,question94,question95,question96,question97,question98,question99,question100,question101,question102,question103,question104,question105,question106,question107,question108,question109,question110,question111,question112,question113,question114,question115,question116,question117,question118,question119,question120,question121,question122,question123,question124,question125,question126,question127,question128,question129,question130,question131,question132,question133,question134,question135,question136,question137,question138,question139,question140,question141,question142,question143,question144,question145,question146,question147,question148,question149,question150)
         return questionBank;
     }
 
