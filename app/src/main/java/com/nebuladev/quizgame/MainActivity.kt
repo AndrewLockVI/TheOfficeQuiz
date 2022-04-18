@@ -33,7 +33,9 @@ class MainActivity : AppCompatActivity() {
     private var questionsUsed : List<Int> = listOf()
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         buttonOne = findViewById(R.id.answer_one)
@@ -139,6 +141,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
     fun greenCorrect()
     {
 
@@ -194,7 +197,9 @@ class MainActivity : AppCompatActivity() {
                         alpha(0f)
                         translationX(1500f)
                         count += 1
+
                     }
+
                 }
             }
 
@@ -228,6 +233,7 @@ class MainActivity : AppCompatActivity() {
                         translationX(0f)
                         buttons[count].setBackgroundColor(getColor(R.color.light_blue))
                         count += 1
+
                     }
                 }
                 }
