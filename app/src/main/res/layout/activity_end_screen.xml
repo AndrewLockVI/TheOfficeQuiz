@@ -4,65 +4,123 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EndScreen">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    tools:context=".EndScreen"
+    android:translationY="-100dp">
+
     <ProgressBar
         android:id="@+id/progressToLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:progressDrawable="@drawable/progress_bar_circualr"
-        android:minWidth="300dp"
-        android:minHeight="200dp"
         android:layout_weight="1"
-        android:progress="10"
-        android:rotation="270"
         android:indeterminateOnly="false"
-        android:translationY="30dp"
-        >
-
+        android:minWidth="200dp"
+        android:minHeight="200dp"
+        android:progress="10"
+        android:progressDrawable="@drawable/progress_bar_circualr"
+        android:rotation="270"
+        android:textFontWeight="1"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent">
 
     </ProgressBar>
 
-
-
-
-
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+10"
         android:id="@+id/scoreText"
-        android:textSize="50dp"
-        android:translationY="-243dp"
-        android:layout_weight="1"
-        android:translationX="-7dp"
-        android:gravity="center"
-
-        >
-    </TextView>
-
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="100 / 250"
-        android:id="@+id/totalScore"
-        android:textSize="50dp"
         android:layout_weight="1"
-        android:translationY="-200dp"
+        android:gravity="center"
+        android:text="+10"
+        android:textFontWeight="1"
+        android:textSize="50dp"
 
+        app:layout_constraintBottom_toBottomOf="@+id/progressToLevel"
+        app:layout_constraintEnd_toEndOf="@+id/progressToLevel"
+        app:layout_constraintStart_toStartOf="@+id/progressToLevel"
+        app:layout_constraintTop_toTopOf="@+id/progressToLevel">
 
-        >
     </TextView>
 
+    <TextView
+        android:id="@+id/totalScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="100 / 250"
+        android:textFontWeight="1"
+        android:textSize="40dp"
+        android:translationY="50dp"
 
 
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/progressToLevel">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Level : 1"
+        android:textFontWeight="1"
+        android:textSize="50dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/scoreText"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout">
+
+    </TextView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play Again"
+        app:layout_constraintBottom_toTopOf="@id/mainMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        android:minHeight="60dp"
+        android:minWidth="175dp"
+        android:id="@+id/playAgain"
+
+        >
+    </Button>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main Menu"
+        android:id="@+id/mainMenu"
+        app:layout_constraintBottom_toBottomOf="@id/view1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        android:minWidth="200dp"
+        android:minHeight="60dp"
+        >
+    </Button>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/view1"
+        app:layout_constraintBottom_toBottomOf="@id/linearLayout"
+        app:layout_constraintLeft_toLeftOf="@id/linearLayout"
+        app:layout_constraintRight_toRightOf="@id/linearLayout"
+        >
+
+    </View>
 
 
-
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:textFontWeight="1">
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

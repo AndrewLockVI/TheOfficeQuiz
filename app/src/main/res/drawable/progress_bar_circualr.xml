@@ -17,12 +17,7 @@
             >
             <solid android:color="@color/light_blue" />
         </shape>
-
-
-
-
-
-
     </item>
+
 
 </layer-list>
