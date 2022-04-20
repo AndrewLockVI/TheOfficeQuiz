@@ -5,12 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EndScreen"
-    android:translationY="-100dp">
+    android:translationY="00dp"
+    android:background="@drawable/paperbackground"
+    >
 
     <ProgressBar
         android:id="@+id/progressToLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="190dp"
         android:layout_weight="1"
         android:indeterminateOnly="false"
         android:minWidth="200dp"
@@ -35,7 +38,7 @@
         android:text="+10"
         android:textFontWeight="1"
         android:textSize="50dp"
-
+        android:textColor="@color/grey_text"
         app:layout_constraintBottom_toBottomOf="@+id/progressToLevel"
         app:layout_constraintEnd_toEndOf="@+id/progressToLevel"
         app:layout_constraintStart_toStartOf="@+id/progressToLevel"
@@ -44,16 +47,16 @@
     </TextView>
 
     <TextView
+
         android:id="@+id/totalScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:layout_weight="1"
         android:text="100 / 250"
         android:textFontWeight="1"
         android:textSize="40dp"
-        android:translationY="50dp"
-
-
+        android:textColor="@color/grey_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/progressToLevel">
@@ -68,15 +71,21 @@
         android:text="Level : 1"
         android:textFontWeight="1"
         android:textSize="50dp"
-
+        android:layout_marginBottom="80dp"
         app:layout_constraintBottom_toBottomOf="@+id/scoreText"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout">
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        android:textColor="@color/grey_text"
+
+        >
 
     </TextView>
 
     <Button
+        android:layout_marginBottom="10dp"
+        android:scaleX="1.14"
+        android:scaleY="1.14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Play Again"
@@ -86,10 +95,14 @@
         android:minHeight="60dp"
         android:minWidth="175dp"
         android:id="@+id/playAgain"
+        android:textColor="@color/white"
 
         >
     </Button>
     <Button
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        android:layout_marginBottom="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Main Menu"
@@ -99,6 +112,7 @@
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         android:minWidth="200dp"
         android:minHeight="60dp"
+        android:textColor="@color/white"
         >
     </Button>
 

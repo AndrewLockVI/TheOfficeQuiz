@@ -212,7 +212,7 @@ class MainActivity : AppCompatActivity() {
             }
             override fun onFinish()
             {
-                if(questionsUsed.size == 2)
+                if(questionsUsed.size == 10)
                 {
 
                     intent.putExtra("score" , score.text)
