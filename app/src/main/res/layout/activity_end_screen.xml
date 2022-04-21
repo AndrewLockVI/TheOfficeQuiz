@@ -13,7 +13,7 @@
         android:id="@+id/progressToLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
+        android:layout_marginTop="50dp"
         android:layout_weight="1"
         android:indeterminateOnly="false"
         android:minWidth="200dp"
@@ -51,7 +51,7 @@
         android:id="@+id/totalScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="-10dp"
         android:layout_weight="1"
         android:text="100 / 250"
         android:textColor="@color/grey_text"
@@ -73,7 +73,7 @@
         android:textColor="@color/grey_text"
         android:textFontWeight="1"
         android:textSize="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/charImage"
+        app:layout_constraintBottom_toTopOf="@+id/name"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
@@ -82,11 +82,31 @@
 
     </TextView>
 
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Toby"
+        android:textColor="@color/grey_text"
+        android:textFontWeight="1"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/charImage"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/level">
+
+    </TextView>
+
 
     <ImageView
         android:id="@+id/charImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="-58dp"
         android:background="@drawable/toby"
         app:layout_constraintBottom_toTopOf="@+id/progressToLevel"
         app:layout_constraintEnd_toEndOf="parent"
