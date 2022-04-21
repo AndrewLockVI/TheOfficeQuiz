@@ -13,7 +13,7 @@
         android:id="@+id/progressToLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="190dp"
+        android:layout_marginBottom="0dp"
         android:layout_weight="1"
         android:indeterminateOnly="false"
         android:minWidth="200dp"
@@ -54,9 +54,10 @@
         android:layout_marginTop="50dp"
         android:layout_weight="1"
         android:text="100 / 250"
+        android:textColor="@color/grey_text"
         android:textFontWeight="1"
         android:textSize="40dp"
-        android:textColor="@color/grey_text"
+        app:layout_constraintBottom_toTopOf="@+id/playAgain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/progressToLevel">
@@ -69,18 +70,30 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Level : 1"
+        android:textColor="@color/grey_text"
         android:textFontWeight="1"
         android:textSize="50dp"
-        android:layout_marginBottom="80dp"
-        app:layout_constraintBottom_toBottomOf="@+id/scoreText"
+        app:layout_constraintBottom_toTopOf="@+id/charImage"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        android:textColor="@color/grey_text"
 
         >
 
     </TextView>
+
+
+    <ImageView
+        android:id="@+id/charImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/toby"
+        app:layout_constraintBottom_toTopOf="@+id/progressToLevel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/level">
+
+    </ImageView>
 
     <Button
         android:layout_marginBottom="10dp"

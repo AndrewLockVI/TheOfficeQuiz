@@ -2,9 +2,11 @@ package com.nebuladev.quizgame
 
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.app.NotificationCompat.getExtras
@@ -19,6 +21,7 @@ class EndScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_end_screen)
         var levelScore = 100
+        var characterImage : ImageView = findViewById(R.id.charImage)
         var score : String = getIntent().getStringExtra("score").toString()
         var  scoreText : TextView = findViewById(R.id.scoreText)
         var progressBar1 : ProgressBar = findViewById(R.id.progressToLevel)
@@ -34,9 +37,24 @@ class EndScreen : AppCompatActivity() {
 
 
 
+
+
+
+
         sharedPreferencesEditor.commit()
         var level : TextView = findViewById(R.id.level)
-        level.text = (sharedPreferences.getInt("level" , MODE_PRIVATE)).toString()
+        level.text = "Level: " + (sharedPreferences.getInt("level" , MODE_PRIVATE)).toString()
+
+        if(sharedPreferences.getInt("level" , MODE_PRIVATE) == 1)
+        {
+            characterImage.setBackgroundResource(R.drawable.toby)
+        }
+        else if(sharedPreferences.getInt("level" , MODE_PRIVATE) > 2)
+        {
+            characterImage.setBackgroundResource(R.drawable.karen)
+        }
+
+
         var totalScoreInt = sharedPreferences.getInt("score" , MODE_PRIVATE).toString() + " / " + ((sharedPreferences.getInt("level" , MODE_PRIVATE)) * levelScore).toString()
         var totalScore : TextView = findViewById(R.id.totalScore)
         totalScore.text = totalScoreInt
