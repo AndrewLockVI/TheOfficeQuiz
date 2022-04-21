@@ -42,7 +42,7 @@ class EndScreen : AppCompatActivity() {
 
         sharedPreferencesEditor.commit()
         var level : TextView = findViewById(R.id.level)
-        level.text = "Level: " + (sharedPreferences.getInt("level" , MODE_PRIVATE)).toString()
+        level.text = "Level " + (sharedPreferences.getInt("level" , MODE_PRIVATE)).toString() + ":"
         level(sharedPreferences.getInt("level" , MODE_PRIVATE) , characterImage)
 
         var totalScoreInt = sharedPreferences.getInt("score" , MODE_PRIVATE).toString() + " / " + ((sharedPreferences.getInt("level" , MODE_PRIVATE)) * levelScore).toString()
@@ -50,7 +50,8 @@ class EndScreen : AppCompatActivity() {
         totalScore.text = totalScoreInt
 
         progressBar1.progress = (((sharedPreferences.getInt("score" , MODE_PRIVATE).toDouble() - (sharedPreferences.getInt("level" , MODE_PRIVATE).toDouble() - 1) * levelScore) / levelScore) * 100).toInt()
-
+        var name : TextView = findViewById(R.id.name)
+        name.text = getName(sharedPreferences.getInt("level" , MODE_PRIVATE))
 
         var mainMenu : Button = findViewById(R.id.mainMenu)
         mainMenu.setOnClickListener(){
@@ -66,6 +67,100 @@ class EndScreen : AppCompatActivity() {
 
 
 
+    }
+    fun getName(currLevel : Int) : String
+    {
+        if(currLevel == 1)
+        {
+            return "Todd"
+        }
+        else if (currLevel == 2)
+        {
+            return "Toby"
+        }
+        else if (currLevel == 3)
+        {
+            return "Nellie"
+        }
+        else if (currLevel == 4)
+        {
+            return "Karen"
+        }
+        else if (currLevel == 5)
+        {
+            return "Deangelo"
+        }
+        else if (currLevel == 6)
+        {
+            return "Gabe"
+        }
+        else if (currLevel == 7)
+        {
+            return "Jan"
+        }
+        else if (currLevel == 8)
+        {
+            return "Meredith"
+        }
+        else if (currLevel == 9)
+        {
+            return "Erin"
+        }
+        else if (currLevel == 10)
+        {
+            return "Mose"
+        }
+        else if (currLevel == 11)
+        {
+            return "David"
+        }
+        else if (currLevel == 12)
+        {
+            return "Andy"
+        }
+        else if (currLevel == 13)
+        {
+            return "Roy"
+        }
+        else if (currLevel == 14)
+        {
+            return "Robert"
+        }
+
+        else if (currLevel == 15)
+        {
+            return "Oscar"
+        }
+        else if (currLevel == 16)
+        {
+            return "Darryl"
+        }
+        else if (currLevel == 17)
+        {
+            return "Kevin"
+        }
+
+        else if (currLevel == 18)
+        {
+            return "Stanley"
+        }
+
+        else if (currLevel == 19)
+        {
+            return "Dwight"
+        }
+        else if (currLevel == 20)
+        {
+            return "Michael"
+        }
+        else if (currLevel == 21)
+        {
+            return "Pam"
+        }
+        else
+        {
+            return "Jim"
+        }
     }
 
     fun level(currLevel : Int , image : ImageView)
