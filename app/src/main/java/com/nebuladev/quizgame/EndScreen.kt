@@ -1,5 +1,6 @@
 package com.nebuladev.quizgame
 
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.drawable.Drawable
@@ -29,6 +30,7 @@ class EndScreen : AppCompatActivity() {
         scoreText.text = "+" + (score.substringBefore("/").toInt() * 10).toString()
         var sharedPreferences : SharedPreferences = getSharedPreferences("score" , MODE_PRIVATE)
         var sharedPreferencesEditor : SharedPreferences.Editor = sharedPreferences.edit()
+        progressBar1.progress = (((sharedPreferences.getInt("score" , MODE_PRIVATE).toDouble() - (sharedPreferences.getInt("level" , MODE_PRIVATE).toDouble() - 1) * levelScore) / levelScore) * 100).toInt()
         sharedPreferencesEditor.putInt("score", sharedPreferences.getInt("score" , 0) + score.substringBefore("/").toInt() * 10)
         sharedPreferencesEditor.commit()
         if(sharedPreferences.getInt("score", MODE_PRIVATE) >= (sharedPreferences.getInt("level", MODE_PRIVATE)) * levelScore)
@@ -48,8 +50,13 @@ class EndScreen : AppCompatActivity() {
         var totalScoreInt = sharedPreferences.getInt("score" , MODE_PRIVATE).toString() + " / " + ((sharedPreferences.getInt("level" , MODE_PRIVATE)) * levelScore).toString()
         var totalScore : TextView = findViewById(R.id.totalScore)
         totalScore.text = totalScoreInt
+        ObjectAnimator.ofInt(progressBar1,"progress",  (((sharedPreferences.getInt("score" , MODE_PRIVATE).toDouble() - (sharedPreferences.getInt("level" , MODE_PRIVATE).toDouble() - 1) * levelScore) / levelScore) * 100).toInt())
+            .setDuration(1000)
+            .start()
 
-        progressBar1.progress = (((sharedPreferences.getInt("score" , MODE_PRIVATE).toDouble() - (sharedPreferences.getInt("level" , MODE_PRIVATE).toDouble() - 1) * levelScore) / levelScore) * 100).toInt()
+
+
+
         var name : TextView = findViewById(R.id.name)
         name.text = getName(sharedPreferences.getInt("level" , MODE_PRIVATE))
 
@@ -64,7 +71,6 @@ class EndScreen : AppCompatActivity() {
             startActivity(intentPlay)
 
         }
-
 
 
     }
