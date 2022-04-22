@@ -42,6 +42,7 @@ class EndScreen : AppCompatActivity() {
 
 
 
+
         sharedPreferencesEditor.commit()
         var level : TextView = findViewById(R.id.level)
         level.text = "Level " + (sharedPreferences.getInt("level" , MODE_PRIVATE)).toString() + ":"
@@ -50,7 +51,7 @@ class EndScreen : AppCompatActivity() {
         var totalScoreInt = sharedPreferences.getInt("score" , MODE_PRIVATE).toString() + " / " + ((sharedPreferences.getInt("level" , MODE_PRIVATE)) * levelScore).toString()
         var totalScore : TextView = findViewById(R.id.totalScore)
         totalScore.text = totalScoreInt
-        ObjectAnimator.ofInt(progressBar1,"progress",  (((sharedPreferences.getInt("score" , MODE_PRIVATE).toDouble() - (sharedPreferences.getInt("level" , MODE_PRIVATE).toDouble() - 1) * levelScore) / levelScore) * 100).toInt())
+        ObjectAnimator.ofInt(progressBar1,"progress",  ((((sharedPreferences.getInt("score" , MODE_PRIVATE).toDouble() - (sharedPreferences.getInt("level" , MODE_PRIVATE).toDouble() - 1) * levelScore) / levelScore) * 100) + 1).toInt())
             .setDuration(1000)
             .start()
 
@@ -71,6 +72,7 @@ class EndScreen : AppCompatActivity() {
             startActivity(intentPlay)
 
         }
+
 
 
     }
