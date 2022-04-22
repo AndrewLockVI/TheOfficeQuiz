@@ -87,14 +87,14 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="46dp"
         android:layout_weight="1"
         android:fontFamily="@font/basic"
         android:text="Toby"
         android:textColor="@color/grey_text"
         android:textFontWeight="1"
         android:textSize="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/charImage"
+        app:layout_constraintBottom_toTopOf="@+id/cardview"
 
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
@@ -102,21 +102,43 @@
 
     </TextView>
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintBottom_toBottomOf="@id/cardview"
+        app:layout_constraintTop_toTopOf="@id/cardview"
+        app:layout_constraintStart_toStartOf="@id/cardview"
+        app:layout_constraintEnd_toEndOf="@id/cardview"
+        app:cardBackgroundColor="@color/light_blue"
 
-    <ImageView
-        android:id="@+id/charImage"
+
+        >
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="-58dp"
-        android:background="@drawable/toby"
+        android:layout_marginTop="-10dp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="50dp"
         app:layout_constraintBottom_toTopOf="@+id/progressToLevel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/level">
 
-    </ImageView>
+        app:layout_constraintTop_toBottomOf="@+id/name">
 
+        <ImageView
+            android:id="@+id/charImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/toby"
+            android:scaleType="centerCrop">
+
+        </ImageView>
+    </androidx.cardview.widget.CardView>
     <Button
         android:layout_marginBottom="10dp"
         android:scaleX="1.14"

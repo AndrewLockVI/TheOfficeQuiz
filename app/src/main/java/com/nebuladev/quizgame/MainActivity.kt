@@ -1,4 +1,5 @@
 package com.nebuladev.quizgame
+import android.animation.ObjectAnimator
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -220,6 +221,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 else
                 {
+
                 textOne.animate().apply {
                     duration = 0
                     alpha(1f)
