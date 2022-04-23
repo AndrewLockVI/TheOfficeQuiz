@@ -12,8 +12,10 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="100dp"
-        android:layout_height="210dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent=".25"
+        app:layout_constraintWidth_percent="1"
         android:elevation="10dp"
         android:scaleX="100"
         android:scaleY="1.4"
@@ -40,22 +42,27 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="380sp"
-        android:layout_height="580sp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="10sp"
-        android:translationY="-112sp"
+        app:layout_constraintHeight_percent=".7"
+        app:layout_constraintWidth_percent=".9"
 
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="40sp"
-        app:layout_constraintBottom_toBottomOf="@id/playButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/playButton">
+        app:layout_constraintTop_toBottomOf="@id/cardView2">
 
         <TextView
             android:id="@+id/frontpageLvl"
-            android:layout_width="500sp"
-            android:layout_height="60sp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent=".1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_gravity="center_horizontal"
             android:alpha=".7"
             android:background="#14D2FF"
@@ -64,7 +71,7 @@
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:textSize="40sp">
+            android:autoSizeTextType="uniform">
 
         </TextView>
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -74,8 +81,10 @@
             <ProgressBar
                 android:id="@+id/progressbar_horizontal"
                 style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="200sp"
-                android:layout_height="10sp"
+                android:layout_width="0dp"
+                android:layout_height="00dp"
+                app:layout_constraintWidth_percent=".57"
+                app:layout_constraintHeight_percent=".022"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="100sp"
                 android:progressDrawable="@drawable/progress_gradient"
@@ -118,93 +127,118 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/RightBox"
-                android:layout_width="160sp"
-                android:layout_height="100sp"
-                android:layout_marginEnd="150sp"
-                android:layout_marginTop="40sp"
-                android:layout_marginBottom="160sp"
+                android:layout_width="0dp"
+                android:layout_height="00dp"
+                app:layout_constraintWidth_percent=".45"
+                app:layout_constraintHeight_percent=".2"
+
                 app:cardCornerRadius="10sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/LeftBox"
+                app:layout_constraintEnd_toStartOf="@id/topScore"
+                app:layout_constraintTop_toBottomOf="@id/currLevel"
                 app:layout_constraintTop_toTopOf="parent">
 
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintHeight_percent=".24"
+                    android:maxLines="1"
                     android:fontFamily="@font/nunito_sans"
                     android:text="High Score"
                     android:paddingStart="5dp"
                     android:textColor="@color/grey_text"
-                    android:textSize="20dp">
+                    android:autoSizeTextType="uniform"
+                    android:id="@+id/highScoretxt"
+
+                    >
 
                 </TextView>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintTop_toBottomOf="@id/highScoretxt"
+                    app:layout_constraintHeight_percent=".46"
+                    android:maxLines="1"
                     android:alpha=".7"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:fontFamily="@font/nunito_sans"
                     android:text="10/10"
                     android:textColor="#2A93D5"
-                    android:textSize="37dp"
-                    android:translationY="30dp">
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:autoSizeTextType="uniform">
 
                 </TextView>
-
+</androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/LeftBox"
-                android:layout_width="170dp"
-                android:layout_height="100dp"
-                android:layout_marginEnd="145dp"
-                android:layout_marginTop="330dp"
-                android:layout_marginBottom="160dp"
+                android:layout_width="0dp"
+                android:layout_height="00dp"
+                app:layout_constraintWidth_percent=".45"
+                app:layout_constraintHeight_percent=".2"
+                app:layout_constraintEnd_toStartOf="@id/topAnswers"
                 app:cardCornerRadius="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
+                app:layout_constraintTop_toTopOf="@id/topAnswers">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintHeight_percent=".24"
+                    android:maxLines="1"
                     android:fontFamily="@font/nunito_sans"
                     android:text="Correct Answers"
                     android:paddingStart="5dp"
                     android:textColor="@color/grey_text"
-                    android:textSize="20dp">
+                    android:id="@+id/correctAnswerstxt"
+                    android:autoSizeTextType="uniform"
+                    >
 
                 </TextView>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintTop_toBottomOf="@id/correctAnswerstxt"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHeight_percent=".46"
                     android:alpha=".7"
                     android:fontFamily="@font/nunito_sans"
                     android:text="129"
                     android:textColor="#2A93D5"
-                    android:textSize="37dp"
-                    android:translationY="30dp">
+                    android:autoSizeTextType="uniform"
+                 >
 
                 </TextView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/topScore"
-                android:layout_width="120dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="205dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="160dp"
+                android:layout_width="0dp"
+                android:layout_height="00dp"
+                app:layout_constraintWidth_percent=".35"
+                app:layout_constraintHeight_percent=".2"
                 app:cardCornerRadius="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="@id/RightBox"
+                app:layout_constraintStart_toEndOf="@id/LeftBox"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -235,16 +269,16 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/topAnswers"
-                android:layout_width="120dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="205dp"
-                android:layout_marginTop="330dp"
-                android:layout_marginBottom="160dp"
+                android:layout_width="0dp"
+                android:layout_height="00dp"
+                app:layout_constraintWidth_percent=".35"
+                app:layout_constraintHeight_percent=".2"
+
                 app:cardCornerRadius="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/playButton"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintStart_toEndOf="@id/LeftBox"
+                app:layout_constraintTop_toBottomOf="@id/topScore">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -279,7 +313,27 @@
 
 
 
+    <Button
+        android:id="@+id/playButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:fontFamily="@font/nunito_sans"
+        android:gravity="center"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:text="Play Game"
+        app:layout_constraintTop_toBottomOf="@id/LeftBox"
+        android:textColor="@color/white"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="#5BE0FF"
+        android:alpha=".9"
+        >
 
+    </Button>
 
 
 
@@ -287,32 +341,7 @@
 
     </androidx.cardview.widget.CardView>
 
-    <Button
 
-        android:id="@+id/playButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:elevation="10dp"
-        android:fontFamily="@font/nunito_sans"
-        android:gravity="center"
-        android:scaleX="1.5"
-        android:scaleY="1.5"
-        android:text="Play Game"
-
-        android:textColor="@color/white"
-        android:translationY="100dp"
-        app:cornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="#5BE0FF"
-        android:alpha=".9"
-
-        >
-
-    </Button>
 
 
 
@@ -321,8 +350,8 @@
 
     <TextView
         android:id="@+id/dundertext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="28dp"
         android:alpha=".95"
         android:elevation="10dp"
@@ -334,8 +363,9 @@
         android:shadowRadius="55"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="52dp"
-
+        android:autoSizeTextType="uniform"
+        app:layout_constraintWidth_percent=".8"
+        app:layout_constraintHeight_percent=".09"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -349,15 +379,17 @@
         android:shadowDx="2"
         android:shadowDy="10"
         android:shadowRadius="55"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent=".5"
+        app:layout_constraintHeight_percent=".08"
         android:layout_marginTop="0dp"
         android:elevation="10dp"
         android:fontFamily="@font/nunito_sans"
         android:text="Infinity"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="46dp"
+        android:autoSizeTextType="uniform"
         android:alpha=".95"
 
         app:layout_constraintEnd_toEndOf="@id/dundertext"
