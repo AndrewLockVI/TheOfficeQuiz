@@ -4,93 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/blue_gradient"
     tools:context="LandingPage"
-    android:background="@color/almost_white"
 
     >
-
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
+        android:layout_marginTop="10dp"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintHeight_percent=".25"
-        app:layout_constraintWidth_percent="1"
-        android:elevation="10dp"
-        android:scaleX="100"
-        android:scaleY="1.4"
-        app:cardCornerRadius="400dp"
+        android:scaleX="1"
+        android:scaleY="1"
+        app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".21"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.9"
+        android:backgroundTint="#FF72C6ED"
+        >
 
-        <ImageView
-            android:id="@+id/lightblueobj"
-            android:layout_width="420dp"
-            android:layout_height="220dp"
-            android:background="@drawable/blue_gradient"
-            android:alpha=".9"
-            app:cardCornerRadius="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </ImageView>
 
     </androidx.cardview.widget.CardView>
+
+
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="10sp"
-        app:layout_constraintHeight_percent=".7"
-        app:layout_constraintWidth_percent=".9"
-
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="40sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".74"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardView2">
-
+        app:layout_constraintTop_toBottomOf="@id/cardView2"
+        app:layout_constraintWidth_percent=".9">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
         <TextView
             android:id="@+id/frontpageLvl"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent=".1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_gravity="center_horizontal"
             android:alpha=".7"
+            android:autoSizeTextType="uniform"
             android:background="#14D2FF"
             android:fontFamily="@font/nunito_sans"
             android:text="Level 0"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:autoSizeTextType="uniform">
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
         </TextView>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+
+
 
             <ProgressBar
                 android:id="@+id/progressbar_horizontal"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="0dp"
-                android:layout_height="00dp"
-                app:layout_constraintWidth_percent=".57"
-                app:layout_constraintHeight_percent=".022"
+                android:layout_height="0dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="100sp"
                 android:progressDrawable="@drawable/progress_gradient"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".022"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent=".57"
                 tools:progress="10" />
 
             <TextView
@@ -98,11 +90,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16sp"
+                android:alpha=".8"
                 android:fontFamily="@font/nunito_sans_bold"
                 android:text="0"
-                android:textSize="40sp"
-                android:alpha=".8"
                 android:textColor="@color/grey_text"
+                android:textSize="40sp"
                 app:layout_constraintBottom_toBottomOf="@id/progressbar_horizontal"
                 app:layout_constraintEnd_toStartOf="@id/progressbar_horizontal"
                 app:layout_constraintTop_toTopOf="@id/progressbar_horizontal">
@@ -111,13 +103,13 @@
 
             <TextView
                 android:id="@+id/nextLevel"
-                android:alpha=".8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16sp"
+                android:alpha=".8"
                 android:fontFamily="@font/nunito_sans_bold"
-                android:textColor="@color/grey_text"
                 android:text="1"
+                android:textColor="@color/grey_text"
                 android:textSize="40sp"
                 app:layout_constraintBottom_toBottomOf="@id/progressbar_horizontal"
                 app:layout_constraintStart_toEndOf="@id/progressbar_horizontal"
@@ -125,216 +117,272 @@
 
             </TextView>
 
+
+
+    <TextView
+        android:id="@+id/highScoretxt"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/nunito_sans"
+        android:maxLines="1"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintWidth_percent=".4"
+        android:text="High Score"
+        android:elevation="10dp"
+        app:layout_constraintStart_toStartOf="@id/RightBox"
+        android:textColor="@color/grey_text"
+        app:layout_constraintHeight_percent=".05"
+        app:layout_constraintTop_toTopOf="@id/RightBox"
+
+        >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha=".7"
+        android:elevation="10dp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/nunito_sans"
+        android:maxLines="1"
+        android:text="10/10"
+        android:textColor="#2A93D5"
+        app:layout_constraintHeight_percent=".09"
+        app:layout_constraintWidth_percent=".3"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintStart_toStartOf="@id/RightBox"
+        app:layout_constraintTop_toTopOf="@id/highScoretxt"
+        app:layout_constraintEnd_toEndOf="@id/RightBox"
+        app:layout_constraintBottom_toBottomOf="@id/RightBox">
+
+    </TextView>
+
+
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/RightBox"
                 android:layout_width="0dp"
                 android:layout_height="00dp"
-                app:layout_constraintWidth_percent=".45"
-                app:layout_constraintHeight_percent=".2"
-
                 app:cardCornerRadius="10sp"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/LeftBox"
                 app:layout_constraintEnd_toStartOf="@id/topScore"
+                app:layout_constraintHeight_percent=".2"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/currLevel"
-                app:layout_constraintTop_toTopOf="parent">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-                <TextView
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    app:layout_constraintHeight_percent=".24"
-                    android:maxLines="1"
-                    android:fontFamily="@font/nunito_sans"
-                    android:text="High Score"
-                    android:paddingStart="5dp"
-                    android:textColor="@color/grey_text"
-                    android:autoSizeTextType="uniform"
-                    android:id="@+id/highScoretxt"
+                app:layout_constraintWidth_percent=".45">
 
-                    >
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    app:layout_constraintTop_toBottomOf="@id/highScoretxt"
-                    app:layout_constraintHeight_percent=".46"
-                    android:maxLines="1"
-                    android:alpha=".7"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:fontFamily="@font/nunito_sans"
-                    android:text="10/10"
-                    android:textColor="#2A93D5"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:autoSizeTextType="uniform">
-
-                </TextView>
-</androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
+
+
+
+
 
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/LeftBox"
                 android:layout_width="0dp"
                 android:layout_height="00dp"
-                app:layout_constraintWidth_percent=".45"
-                app:layout_constraintHeight_percent=".2"
-                app:layout_constraintEnd_toStartOf="@id/topAnswers"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/topAnswers"
+                app:layout_constraintHeight_percent=".2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/topAnswers">
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                <TextView
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    app:layout_constraintHeight_percent=".24"
-                    android:maxLines="1"
-                    android:fontFamily="@font/nunito_sans"
-                    android:text="Correct Answers"
-                    android:paddingStart="5dp"
-                    android:textColor="@color/grey_text"
-                    android:id="@+id/correctAnswerstxt"
-                    android:autoSizeTextType="uniform"
-                    >
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    app:layout_constraintTop_toBottomOf="@id/correctAnswerstxt"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintHeight_percent=".46"
-                    android:alpha=".7"
-                    android:fontFamily="@font/nunito_sans"
-                    android:text="129"
-                    android:textColor="#2A93D5"
-                    android:autoSizeTextType="uniform"
-                 >
-
-                </TextView>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
+                app:layout_constraintTop_toTopOf="@id/topAnswers"
+                app:layout_constraintWidth_percent=".45">
 
             </androidx.cardview.widget.CardView>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/nunito_sans"
+        android:text="Top"
+        android:paddingStart="5dp"
+        app:layout_constraintStart_toStartOf="@id/topScore"
+        android:textColor="@color/grey_text"
+        app:layout_constraintHeight_percent=".05"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintTop_toTopOf="@id/topScore"
+        android:elevation="10dp"
+        app:layout_constraintWidth_percent=".4"
+        >
+
+    </TextView>
+
+    <TextView
+        android:paddingStart="10dp"
+        android:text="5%"
+        android:textColor="#2A93D5"
+
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="10dp"
+        android:alpha=".7"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/nunito_sans"
+        app:layout_constraintHeight_percent=".09"
+        app:layout_constraintWidth_percent=".3"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintStart_toStartOf="@id/topScore"
+        app:layout_constraintTop_toTopOf="@id/highScoretxt"
+        app:layout_constraintEnd_toEndOf="@id/topScore"
+        app:layout_constraintBottom_toBottomOf="@id/topScore"
+        >
+
+    </TextView>
+    <TextView
+
+
+        android:text="Top"
+        android:textSize="20dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/nunito_sans"
+        android:paddingStart="5dp"
+        app:layout_constraintStart_toStartOf="@id/topScore"
+        android:textColor="@color/grey_text"
+        app:layout_constraintHeight_percent=".05"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintTop_toTopOf="@id/topAnswers"
+        android:elevation="10dp"
+        app:layout_constraintWidth_percent=".4"
+
+
+        >
+
+    </TextView>
+
+    <TextView
+
+        android:text="5%"
+        android:textSize="37dp"
+        android:paddingStart="10dp"
+        android:textColor="#2A93D5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="10dp"
+        android:alpha=".7"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/nunito_sans"
+        app:layout_constraintHeight_percent=".09"
+        app:layout_constraintWidth_percent=".3"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintStart_toStartOf="@id/topAnswers"
+        app:layout_constraintTop_toTopOf="@id/correctAnswerstxt"
+        app:layout_constraintEnd_toEndOf="@id/topAnswers"
+        app:layout_constraintBottom_toBottomOf="@id/topAnswers"
+
+
+        >
+
+    </TextView>
+
+
+
+
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/correctAnswerstxt"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/nunito_sans"
+        app:layout_constraintWidth_percent=".4"
+        android:maxLines="1"
+        android:elevation="10dp"
+        android:text="Correct Answers"
+        android:paddingStart="5dp"
+        app:layout_constraintStart_toStartOf="@id/LeftBox"
+        android:textColor="@color/grey_text"
+        app:layout_constraintHeight_percent=".04"
+        app:layout_constraintTop_toTopOf="@id/LeftBox"
+
+        >
+
+    </TextView>
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="10dp"
+
+        android:alpha=".7"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/nunito_sans"
+        android:text="129"
+        android:textColor="#2A93D5"
+        app:layout_constraintHeight_percent=".09"
+        app:layout_constraintWidth_percent=".3"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintStart_toStartOf="@id/RightBox"
+        app:layout_constraintTop_toTopOf="@id/correctAnswerstxt"
+        app:layout_constraintEnd_toEndOf="@id/LeftBox"
+        app:layout_constraintBottom_toBottomOf="@id/LeftBox">
+
+    </TextView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/topScore"
                 android:layout_width="0dp"
                 android:layout_height="00dp"
-                app:layout_constraintWidth_percent=".35"
-                app:layout_constraintHeight_percent=".2"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/RightBox"
+                app:layout_constraintHeight_percent=".2"
                 app:layout_constraintStart_toEndOf="@id/LeftBox"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nunito_sans"
-                    android:text="Top"
-                    android:paddingStart="5dp"
-                    android:textColor="@color/grey_text"
-                    android:textSize="20dp">
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:alpha=".7"
-                    android:paddingStart="10dp"
-                    android:fontFamily="@font/nunito_sans"
-                    android:text="5%"
-                    android:textColor="#2A93D5"
-                    android:textSize="37dp"
-                    android:translationY="30dp">
-
-                </TextView>
-
-
+                app:layout_constraintTop_toTopOf="@id/RightBox"
+                app:layout_constraintWidth_percent=".35">
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/topAnswers"
                 android:layout_width="0dp"
                 android:layout_height="00dp"
-                app:layout_constraintWidth_percent=".35"
-                app:layout_constraintHeight_percent=".2"
-
                 app:cardCornerRadius="10dp"
                 app:layout_constraintBottom_toTopOf="@id/playButton"
+
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".2"
                 app:layout_constraintStart_toEndOf="@id/LeftBox"
-                app:layout_constraintTop_toBottomOf="@id/topScore">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nunito_sans"
-                    android:text="Top"
-                    android:paddingStart="5dp"
-                    android:textColor="@color/grey_text"
-                    android:textSize="20dp">
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:alpha=".7"
-                    android:fontFamily="@font/nunito_sans"
-                    android:text="5%"
-                    android:paddingStart="10dp"
-                    android:textColor="#2A93D5"
-                    android:textSize="37dp"
-                    android:translationY="30dp">
-
-                </TextView>
+                app:layout_constraintTop_toBottomOf="@id/topScore"
+                app:layout_constraintWidth_percent=".35">
 
 
             </androidx.cardview.widget.CardView>
 
 
+            <Button
+                android:id="@+id/playButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha=".9"
+                android:backgroundTint="#5BE0FF"
+                android:elevation="10dp"
+                android:fontFamily="@font/nunito_sans"
+                android:gravity="center"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="Play Game"
+                android:textColor="@color/white"
+                app:cornerRadius="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/LeftBox">
 
-
-
-
-
-    <Button
-        android:id="@+id/playButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="10dp"
-        android:fontFamily="@font/nunito_sans"
-        android:gravity="center"
-        android:scaleX="1.5"
-        android:scaleY="1.5"
-        android:text="Play Game"
-        app:layout_constraintTop_toBottomOf="@id/LeftBox"
-        android:textColor="@color/white"
-        app:cornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:backgroundTint="#5BE0FF"
-        android:alpha=".9"
-        >
-
-    </Button>
-
+            </Button>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -342,66 +390,55 @@
     </androidx.cardview.widget.CardView>
 
 
-
-
-
-
-
-
     <TextView
         android:id="@+id/dundertext"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="15dp"
         android:alpha=".95"
+        android:autoSizeTextType="uniform"
         android:elevation="10dp"
         android:fontFamily="@font/nunito_sans"
-        android:text="Dunder Mifflin"
         android:shadowColor="@color/accent_blue"
         android:shadowDx="2"
         android:shadowDy="10"
         android:shadowRadius="55"
+        android:text="Dunder Mifflin"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:autoSizeTextType="uniform"
-        app:layout_constraintWidth_percent=".8"
-        app:layout_constraintHeight_percent=".09"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".09"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent=".8">
 
     </TextView>
 
     <TextView
         android:id="@+id/dundertextSub"
 
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="15dp"
+        android:alpha=".95"
+        android:autoSizeTextType="uniform"
+        android:elevation="10dp"
+        android:fontFamily="@font/nunito_sans"
         android:shadowColor="@color/accent_blue"
         android:shadowDx="2"
         android:shadowDy="10"
         android:shadowRadius="55"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintWidth_percent=".5"
-        app:layout_constraintHeight_percent=".08"
-        android:layout_marginTop="0dp"
-        android:elevation="10dp"
-        android:fontFamily="@font/nunito_sans"
         android:text="Infinity"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:autoSizeTextType="uniform"
-        android:alpha=".95"
-
         app:layout_constraintEnd_toEndOf="@id/dundertext"
+        app:layout_constraintHeight_percent=".08"
+
         app:layout_constraintStart_toStartOf="@id/dundertext"
-        app:layout_constraintTop_toBottomOf="@id/dundertext">
+        app:layout_constraintTop_toBottomOf="@id/dundertext"
+        app:layout_constraintWidth_percent=".5">
 
     </TextView>
-
-
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
