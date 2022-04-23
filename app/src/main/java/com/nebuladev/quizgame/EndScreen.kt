@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.NotificationCompat.getExtras
 import org.w3c.dom.Text
 
@@ -21,6 +22,7 @@ class EndScreen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_end_screen)
         var levelScore = 100
         var characterImage : ImageView = findViewById(R.id.charImage)

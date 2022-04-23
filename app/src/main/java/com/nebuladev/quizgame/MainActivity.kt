@@ -9,6 +9,7 @@ import android.view.animation.Animation
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.concurrent.thread
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_main)
         buttonOne = findViewById(R.id.answer_one)
 

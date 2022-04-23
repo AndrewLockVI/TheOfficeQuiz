@@ -12,5 +12,10 @@
     <color name="white_bg">#F5F5F5</color>
     <color name="green">#03C04A</color>
     <color name="grey_text">#69797E</color>
+    <color name="accent_blue">#53D3D1</color>
+    <color name="almost_white">#DFE6E9</color>
+    <color name="complement_blue">#3DD9D6</color>
+
+
 
 </resources>

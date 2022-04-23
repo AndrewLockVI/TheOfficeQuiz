@@ -11,9 +11,13 @@
         <entry key="app/src/main/res/drawable/progress_gradient.xml" value="0.247" />
         <entry key="app/src/main/res/drawable/rounded_image_view.xml" value="0.2885" />
         <entry key="app/src/main/res/drawable/shadow.xml" value="0.247" />
+        <entry key="app/src/main/res/layout-large/activity_landing_page.xml" value="0.18" />
+        <entry key="app/src/main/res/layout-normal/activity_landing_page.xml" value="0.16" />
+        <entry key="app/src/main/res/layout-small/activity_landing_page.xml" value="1.0" />
+        <entry key="app/src/main/res/layout-xlarge/activity_landing_page.xml" value="0.47109375" />
         <entry key="app/src/main/res/layout/LandingPage.xml" value="0.2644736842105263" />
-        <entry key="app/src/main/res/layout/activity_end_screen.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_landing_page.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_end_screen.xml" value="0.67" />
+        <entry key="app/src/main/res/layout/activity_landing_page.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.2644736842105263" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.2644736842105263" />

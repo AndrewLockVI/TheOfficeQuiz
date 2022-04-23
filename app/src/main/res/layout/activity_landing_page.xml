@@ -4,26 +4,369 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LandingPage">
+    tools:context="LandingPage"
+    android:background="@color/almost_white"
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
     >
 
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="100dp"
+        android:layout_height="210dp"
+        android:elevation="10dp"
+        android:scaleX="100"
+        android:scaleY="1.4"
+        app:cardCornerRadius="400dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/lightblueobj"
+            android:layout_width="420dp"
+            android:layout_height="220dp"
+            android:background="@drawable/blue_gradient"
+            android:alpha=".9"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </ImageView>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="380sp"
+        android:layout_height="580sp"
+        android:layout_marginBottom="10sp"
+        android:translationY="-112sp"
+
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="40sp"
+        app:layout_constraintBottom_toBottomOf="@id/playButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/playButton">
+
+        <TextView
+            android:id="@+id/frontpageLvl"
+            android:layout_width="500sp"
+            android:layout_height="60sp"
+            android:layout_gravity="center_horizontal"
+            android:alpha=".7"
+            android:background="#14D2FF"
+            android:fontFamily="@font/nunito_sans"
+            android:text="Level 0"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="40sp">
+
+        </TextView>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ProgressBar
+                android:id="@+id/progressbar_horizontal"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="200sp"
+                android:layout_height="10sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100sp"
+                android:progressDrawable="@drawable/progress_gradient"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:progress="10" />
+
+            <TextView
+                android:id="@+id/currLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16sp"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="0"
+                android:textSize="40sp"
+                android:alpha=".8"
+                android:textColor="@color/grey_text"
+                app:layout_constraintBottom_toBottomOf="@id/progressbar_horizontal"
+                app:layout_constraintEnd_toStartOf="@id/progressbar_horizontal"
+                app:layout_constraintTop_toTopOf="@id/progressbar_horizontal">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/nextLevel"
+                android:alpha=".8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16sp"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:textColor="@color/grey_text"
+                android:text="1"
+                android:textSize="40sp"
+                app:layout_constraintBottom_toBottomOf="@id/progressbar_horizontal"
+                app:layout_constraintStart_toEndOf="@id/progressbar_horizontal"
+                app:layout_constraintTop_toTopOf="@id/progressbar_horizontal">
+
+            </TextView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/RightBox"
+                android:layout_width="160sp"
+                android:layout_height="100sp"
+                android:layout_marginEnd="150sp"
+                android:layout_marginTop="40sp"
+                android:layout_marginBottom="160sp"
+                app:cardCornerRadius="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="High Score"
+                    android:paddingStart="5dp"
+                    android:textColor="@color/grey_text"
+                    android:textSize="20dp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha=".7"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="10/10"
+                    android:textColor="#2A93D5"
+                    android:textSize="37dp"
+                    android:translationY="30dp">
+
+                </TextView>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/LeftBox"
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="145dp"
+                android:layout_marginTop="330dp"
+                android:layout_marginBottom="160dp"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="Correct Answers"
+                    android:paddingStart="5dp"
+                    android:textColor="@color/grey_text"
+                    android:textSize="20dp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha=".7"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="129"
+                    android:textColor="#2A93D5"
+                    android:textSize="37dp"
+                    android:translationY="30dp">
+
+                </TextView>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/topScore"
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="205dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="160dp"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="Top"
+                    android:paddingStart="5dp"
+                    android:textColor="@color/grey_text"
+                    android:textSize="20dp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha=".7"
+                    android:paddingStart="10dp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="5%"
+                    android:textColor="#2A93D5"
+                    android:textSize="37dp"
+                    android:translationY="30dp">
+
+                </TextView>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/topAnswers"
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="205dp"
+                android:layout_marginTop="330dp"
+                android:layout_marginBottom="160dp"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="Top"
+                    android:paddingStart="5dp"
+                    android:textColor="@color/grey_text"
+                    android:textSize="20dp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha=".7"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="5%"
+                    android:paddingStart="10dp"
+                    android:textColor="#2A93D5"
+                    android:textSize="37dp"
+                    android:translationY="30dp">
+
+                </TextView>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
     <Button
+
+        android:id="@+id/playButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play Game"
+        android:layout_marginTop="400dp"
+        android:elevation="10dp"
+        android:fontFamily="@font/nunito_sans"
         android:gravity="center"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:text="Play Game"
+
+        android:textColor="@color/white"
         android:translationY="100dp"
-        android:id="@+id/playButton"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="#5BE0FF"
+        android:alpha=".9"
+
         >
+
     </Button>
 
 
-</LinearLayout>
+
+
+
+
+    <TextView
+        android:id="@+id/dundertext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:alpha=".95"
+        android:elevation="10dp"
+        android:fontFamily="@font/nunito_sans"
+        android:text="Dunder Mifflin"
+        android:shadowColor="@color/accent_blue"
+        android:shadowDx="2"
+        android:shadowDy="10"
+        android:shadowRadius="55"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="52dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/dundertextSub"
+
+        android:shadowColor="@color/accent_blue"
+        android:shadowDx="2"
+        android:shadowDy="10"
+        android:shadowRadius="55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:elevation="10dp"
+        android:fontFamily="@font/nunito_sans"
+        android:text="Infinity"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="46dp"
+        android:alpha=".95"
+
+        app:layout_constraintEnd_toEndOf="@id/dundertext"
+        app:layout_constraintStart_toStartOf="@id/dundertext"
+        app:layout_constraintTop_toBottomOf="@id/dundertext">
+
+    </TextView>
+
+
 
 
 
