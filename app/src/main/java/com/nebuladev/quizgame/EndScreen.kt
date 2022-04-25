@@ -25,7 +25,7 @@ class EndScreen : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_end_screen)
         var levelScore = 100
-        var characterImage : ImageView = findViewById(R.id.charImage)
+        //var characterImage : ImageView = findViewById(R.id.charImage)
         var score : String = getIntent().getStringExtra("score").toString()
         var  scoreText : TextView = findViewById(R.id.scoreText)
         var progressBar1 : ProgressBar = findViewById(R.id.progressToLevel)
@@ -46,13 +46,20 @@ class EndScreen : AppCompatActivity() {
 
 
         sharedPreferencesEditor.commit()
-        var level : TextView = findViewById(R.id.level)
-        level.text = "Level " + (sharedPreferences.getInt("level" , MODE_PRIVATE)).toString() + ":"
-        level(sharedPreferences.getInt("level" , MODE_PRIVATE) , characterImage)
+       // var level : TextView = findViewById(R.id.level)
+       // level.text = "Level " + (sharedPreferences.getInt("level" , MODE_PRIVATE)).toString() + ":"
+       // level(sharedPreferences.getInt("level" , MODE_PRIVATE) , characterImage)
+        var currentLvl : TextView = findViewById(R.id.currLevel)
+        var nextlvl : TextView = findViewById(R.id.nextLevel)
+
+        currentLvl.text = sharedPreferences.getInt("level" , MODE_PRIVATE).toString()
+        nextlvl.text = (sharedPreferences.getInt("level" , MODE_PRIVATE) + 1).toString()
+
+
 
         var totalScoreInt = sharedPreferences.getInt("score" , MODE_PRIVATE).toString() + " / " + ((sharedPreferences.getInt("level" , MODE_PRIVATE)) * levelScore).toString()
-        var totalScore : TextView = findViewById(R.id.totalScore)
-        totalScore.text = totalScoreInt
+        //var totalScore : TextView = findViewById(R.id.totalScore)
+       // totalScore.text = totalScoreInt
         ObjectAnimator.ofInt(progressBar1,"progress",  ((((sharedPreferences.getInt("score" , MODE_PRIVATE).toDouble() - (sharedPreferences.getInt("level" , MODE_PRIVATE).toDouble() - 1) * levelScore) / levelScore) * 100) + 1).toInt())
             .setDuration(1000)
             .start()
@@ -60,7 +67,7 @@ class EndScreen : AppCompatActivity() {
 
 
 
-        var name : TextView = findViewById(R.id.name)
+        /*var name : TextView = findViewById(R.id.name)
         name.text = getName(sharedPreferences.getInt("level" , MODE_PRIVATE))
 
         var mainMenu : Button = findViewById(R.id.mainMenu)
@@ -68,7 +75,9 @@ class EndScreen : AppCompatActivity() {
             var intentMenu : Intent = Intent(this,LandingPage::class.java)
             startActivity(intentMenu)
         }
-        var playAgain : Button = findViewById(R.id.playAgain)
+        */
+
+        var playAgain : Button = findViewById(R.id.playButton)
         playAgain.setOnClickListener(){
             var intentPlay : Intent = Intent(this,MainActivity::class.java)
             startActivity(intentPlay)

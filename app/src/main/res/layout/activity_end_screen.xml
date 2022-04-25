@@ -6,28 +6,92 @@
     android:layout_height="match_parent"
     tools:context=".EndScreen"
     android:translationY="00dp"
-    android:background="@drawable/paperbackground"
     >
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent=".1"
+        app:layout_constraintWidth_percent=".2"
+        android:id="@+id/scoreLast"
+        android:text="10"
+        android:textAlignment="center"
+        android:elevation="10dp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/cardBlue"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="@id/cardBlue"
+        app:layout_constraintStart_toStartOf="@id/cardBlue"
+
+        />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent=".06"
+        app:layout_constraintWidth_percent=".16"
+        android:id="@+id/outOf"
+        android:alpha=".9"
+        android:text="/ 10"
+        android:textAlignment="center"
+        android:elevation="10dp"
+        android:textColor="@color/almost_white"
+        app:layout_constraintTop_toTopOf="@id/cardBlue"
+        app:layout_constraintBottom_toBottomOf="@id/scoreLast"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintStart_toEndOf="@id/scoreLast"
+
+        />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
 
     <ProgressBar
         android:id="@+id/progressToLevel"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:progressDrawable="@drawable/progress_gradient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".022"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scoreLast"
+        android:elevation="10dp"
+        app:layout_constraintWidth_percent=".57"
+        tools:progress="10" />
+
+    <TextView
+        android:id="@+id/currLevel"
+        android:elevation="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_weight="1"
-        android:indeterminateOnly="false"
-        android:minWidth="200dp"
-        android:minHeight="200dp"
-        android:progress="10"
-        android:progressDrawable="@drawable/progress_bar_circualr"
-        android:rotation="270"
-        android:textFontWeight="1"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginEnd="16sp"
+        android:alpha=".8"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:text="0"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@id/progressToLevel"
+        app:layout_constraintEnd_toStartOf="@id/progressToLevel"
+        app:layout_constraintTop_toTopOf="@id/progressToLevel">
 
-    </ProgressBar>
+    </TextView>
+
+    <TextView
+        android:id="@+id/nextLevel"
+        android:elevation="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16sp"
+        android:alpha=".8"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:text="1"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@id/progressToLevel"
+        app:layout_constraintStart_toEndOf="@id/progressToLevel"
+        app:layout_constraintTop_toTopOf="@id/progressToLevel">
+
+    </TextView>
 
     <TextView
         android:id="@+id/scoreText"
@@ -36,162 +100,50 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="+10"
-        android:textFontWeight="1"
         android:textSize="50dp"
         android:textColor="@color/grey_text"
-        app:layout_constraintBottom_toBottomOf="@+id/progressToLevel"
-        app:layout_constraintEnd_toEndOf="@+id/progressToLevel"
-        app:layout_constraintStart_toStartOf="@+id/progressToLevel"
+        android:fontFamily="@font/nunito_sans"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/progressToLevel">
 
     </TextView>
 
-    <TextView
 
-        android:id="@+id/totalScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-10dp"
-        android:layout_weight="1"
-        android:text="100 / 250"
-        android:textColor="@color/grey_text"
-        android:textFontWeight="1"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/playAgain"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/progressToLevel">
-
-    </TextView>
-
-    <TextView
-        android:id="@+id/level"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Level : 1"
-        android:textColor="@color/grey_text"
-        android:textFontWeight="1"
-        android:textSize="60dp"
-        android:fontFamily="@font/baloo"
-        app:layout_constraintBottom_toTopOf="@+id/name"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout"
-
-        >
-
-    </TextView>
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="46dp"
-        android:layout_weight="1"
-        android:fontFamily="@font/basic"
-        android:text="Toby"
-        android:textColor="@color/grey_text"
-        android:textFontWeight="1"
-        android:textSize="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardview"
-
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/level">
-
-    </TextView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        app:cardCornerRadius="50dp"
-        app:layout_constraintBottom_toBottomOf="@id/cardview"
-        app:layout_constraintTop_toTopOf="@id/cardview"
-        app:layout_constraintStart_toStartOf="@id/cardview"
-        app:layout_constraintEnd_toEndOf="@id/cardview"
-        app:cardBackgroundColor="@color/light_blue"
-
-
-        >
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardview"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="-10dp"
-        android:layout_marginBottom="8dp"
-        app:cardCornerRadius="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/progressToLevel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toBottomOf="@+id/name">
-
-        <ImageView
-            android:id="@+id/charImage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/toby"
-            android:scaleType="centerCrop">
-
-        </ImageView>
-    </androidx.cardview.widget.CardView>
     <Button
-        android:layout_marginBottom="10dp"
-        android:scaleX="1.14"
-        android:scaleY="1.14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/playButton"
         android:text="Play Again"
-        app:layout_constraintBottom_toTopOf="@id/mainMenu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        android:minHeight="60dp"
-        android:minWidth="175dp"
-        android:id="@+id/playAgain"
-        android:textColor="@color/white"
-
-        >
-    </Button>
-    <Button
-        android:scaleX="1.2"
-        android:scaleY="1.2"
-        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/nunito_sans"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Main Menu"
-        android:id="@+id/mainMenu"
-        app:layout_constraintBottom_toBottomOf="@id/view1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        android:minWidth="200dp"
-        android:minHeight="60dp"
-        android:textColor="@color/white"
+
         >
+
     </Button>
+<androidx.cardview.widget.CardView
+    android:id="@+id/cardBlue"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintWidth_percent="1"
+    app:layout_constraintHeight_percent=".73"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:elevation="1dp"
 
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/view1"
-        app:layout_constraintBottom_toBottomOf="@id/linearLayout"
-        app:layout_constraintLeft_toLeftOf="@id/linearLayout"
-        app:layout_constraintRight_toRightOf="@id/linearLayout"
-        >
-
-    </View>
-
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    >
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:textFontWeight="1">
-    </LinearLayout>
+        android:background="@drawable/blue_gradient"
+        android:scaleX="100"
+        />
+
+</androidx.cardview.widget.CardView>
+
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

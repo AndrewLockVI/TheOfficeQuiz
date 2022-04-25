@@ -76,12 +76,15 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="100sp"
+
                 android:progressDrawable="@drawable/progress_gradient"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHeight_percent=".022"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintBottom_toTopOf="@id/RightBox"
+                app:layout_constraintTop_toBottomOf="@id/frontpageLvl"
                 app:layout_constraintWidth_percent=".57"
                 tools:progress="10" />
 
@@ -352,7 +355,6 @@
                 android:layout_height="00dp"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintBottom_toTopOf="@id/playButton"
-
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHeight_percent=".2"
                 app:layout_constraintStart_toEndOf="@id/LeftBox"
@@ -371,16 +373,20 @@
                 android:backgroundTint="#5BE0FF"
                 android:elevation="10dp"
                 android:fontFamily="@font/nunito_sans"
-                android:gravity="center"
-                android:scaleX="1.5"
                 android:scaleY="1.5"
+                android:scaleX="1.5"
+                android:gravity="center"
                 android:text="Play Game"
                 android:textColor="@color/white"
                 app:cornerRadius="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/LeftBox">
+                app:layout_constraintTop_toBottomOf="@id/LeftBox"
+
+
+
+                >
 
             </Button>
 
@@ -441,4 +447,6 @@
     </TextView>
 
 
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
