@@ -24,12 +24,16 @@ class EndScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_end_screen)
+
+
+
         var levelScore = 100
         //var characterImage : ImageView = findViewById(R.id.charImage)
         var score : String = getIntent().getStringExtra("score").toString()
-        var  scoreText : TextView = findViewById(R.id.scoreText)
+     //   var  scoreText : TextView = findViewById(R.id.scoreLast)
         var progressBar1 : ProgressBar = findViewById(R.id.progressToLevel)
-        scoreText.text = "+" + (score.substringBefore("/").toInt() * 10).toString()
+        var affirmation : TextView = findViewById(R.id.goodJobtxt)
+    //    scoreText.text = "+" + (score.substringBefore("/").toInt() * 10).toString()
         var sharedPreferences : SharedPreferences = getSharedPreferences("score" , MODE_PRIVATE)
         var sharedPreferencesEditor : SharedPreferences.Editor = sharedPreferences.edit()
         progressBar1.progress = (((sharedPreferences.getInt("score" , MODE_PRIVATE).toDouble() - (sharedPreferences.getInt("level" , MODE_PRIVATE).toDouble() - 1) * levelScore) / levelScore) * 100).toInt()
@@ -37,15 +41,39 @@ class EndScreen : AppCompatActivity() {
         sharedPreferencesEditor.commit()
         if(sharedPreferences.getInt("score", MODE_PRIVATE) >= (sharedPreferences.getInt("level", MODE_PRIVATE)) * levelScore)
         {
+           affirmation.text = "Level Up!"
             sharedPreferencesEditor.putInt("level" , sharedPreferences.getInt("level", MODE_PRIVATE) + 1)
         }
+        var scoreOutOf : TextView = findViewById(R.id.totalScore)
+        scoreOutOf.text = score.substringBefore("/") + " / 15"
 
 
+        if(score.substringBefore("/").toInt() < 4)
+        {
+            affirmation.text = "Keep Going!"
+        }
+        else if(score.substringBefore("/").toInt() < 6)
+        {
+            affirmation.text = "Pretty Good!"
+        }
+        else if(score.substringBefore("/").toInt() < 7)
+        {
+            affirmation.text = "Nice Job!"
+        }
+        else if(score.substringBefore("/").toInt() <= 12)
+        {
+            affirmation.text = "Wow Amazing!"
+        }
+        else if(score.substringBefore("/").toInt() == 15)
+        {
+            affirmation.text = "Perfect Score!"
+        }
+
+        var totalScore : TextView = findViewById(R.id.scoreTotal)
+        totalScore.text = sharedPreferences.getInt("total" , MODE_PRIVATE).toString()
 
 
-
-
-        sharedPreferencesEditor.commit()
+            sharedPreferencesEditor.commit()
        // var level : TextView = findViewById(R.id.level)
        // level.text = "Level " + (sharedPreferences.getInt("level" , MODE_PRIVATE)).toString() + ":"
        // level(sharedPreferences.getInt("level" , MODE_PRIVATE) , characterImage)
@@ -58,8 +86,8 @@ class EndScreen : AppCompatActivity() {
 
 
         var totalScoreInt = sharedPreferences.getInt("score" , MODE_PRIVATE).toString() + " / " + ((sharedPreferences.getInt("level" , MODE_PRIVATE)) * levelScore).toString()
-        //var totalScore : TextView = findViewById(R.id.totalScore)
-       // totalScore.text = totalScoreInt
+   //     var totalScore : TextView = findViewById(R.id.totalScore)
+    //    totalScore.text = totalScoreInt
         ObjectAnimator.ofInt(progressBar1,"progress",  ((((sharedPreferences.getInt("score" , MODE_PRIVATE).toDouble() - (sharedPreferences.getInt("level" , MODE_PRIVATE).toDouble() - 1) * levelScore) / levelScore) * 100) + 1).toInt())
             .setDuration(1000)
             .start()
@@ -69,13 +97,13 @@ class EndScreen : AppCompatActivity() {
 
         /*var name : TextView = findViewById(R.id.name)
         name.text = getName(sharedPreferences.getInt("level" , MODE_PRIVATE))
-
+  */
         var mainMenu : Button = findViewById(R.id.mainMenu)
         mainMenu.setOnClickListener(){
             var intentMenu : Intent = Intent(this,LandingPage::class.java)
             startActivity(intentMenu)
         }
-        */
+
 
         var playAgain : Button = findViewById(R.id.playButton)
         playAgain.setOnClickListener(){
@@ -87,200 +115,7 @@ class EndScreen : AppCompatActivity() {
 
 
     }
-    fun getName(currLevel : Int) : String
-    {
-        if(currLevel == 1)
-        {
-            return "Todd"
-        }
-        else if (currLevel == 2)
-        {
-            return "Toby"
-        }
-        else if (currLevel == 3)
-        {
-            return "Nellie"
-        }
-        else if (currLevel == 4)
-        {
-            return "Karen"
-        }
-        else if (currLevel == 5)
-        {
-            return "Deangelo"
-        }
-        else if (currLevel == 6)
-        {
-            return "Gabe"
-        }
-        else if (currLevel == 7)
-        {
-            return "Jan"
-        }
-        else if (currLevel == 8)
-        {
-            return "Meredith"
-        }
-        else if (currLevel == 9)
-        {
-            return "Erin"
-        }
-        else if (currLevel == 10)
-        {
-            return "Mose"
-        }
-        else if (currLevel == 11)
-        {
-            return "David"
-        }
-        else if (currLevel == 12)
-        {
-            return "Andy"
-        }
-        else if (currLevel == 13)
-        {
-            return "Roy"
-        }
-        else if (currLevel == 14)
-        {
-            return "Robert"
-        }
 
-        else if (currLevel == 15)
-        {
-            return "Oscar"
-        }
-        else if (currLevel == 16)
-        {
-            return "Darryl"
-        }
-        else if (currLevel == 17)
-        {
-            return "Kevin"
-        }
-
-        else if (currLevel == 18)
-        {
-            return "Stanley"
-        }
-
-        else if (currLevel == 19)
-        {
-            return "Dwight"
-        }
-        else if (currLevel == 20)
-        {
-            return "Michael"
-        }
-        else if (currLevel == 21)
-        {
-            return "Pam"
-        }
-        else
-        {
-            return "Jim"
-        }
-    }
-
-    fun level(currLevel : Int , image : ImageView)
-    {
-        if(currLevel == 1)
-        {
-            image.setBackgroundResource(R.drawable.todd)
-        }
-        else if (currLevel == 2)
-        {
-            image.setBackgroundResource(R.drawable.toby)
-        }
-        else if (currLevel == 3)
-        {
-            image.setBackgroundResource(R.drawable.nellie)
-        }
-        else if (currLevel == 4)
-        {
-            image.setBackgroundResource(R.drawable.karen)
-        }
-        else if (currLevel == 5)
-        {
-            image.setBackgroundResource(R.drawable.deangelo)
-        }
-        else if (currLevel == 6)
-        {
-            image.setBackgroundResource(R.drawable.gabe)
-        }
-        else if (currLevel == 7)
-        {
-            image.setBackgroundResource(R.drawable.jan)
-        }
-        else if (currLevel == 8)
-        {
-            image.setBackgroundResource(R.drawable.merideth)
-        }
-        else if (currLevel == 9)
-        {
-            image.setBackgroundResource(R.drawable.erin)
-        }
-        else if (currLevel == 10)
-        {
-            image.setBackgroundResource(R.drawable.mose)
-        }
-        else if (currLevel == 11)
-        {
-            image.setBackgroundResource(R.drawable.david)
-        }
-        else if (currLevel == 12)
-        {
-            image.setBackgroundResource(R.drawable.andy)
-        }
-        else if (currLevel == 13)
-        {
-            image.setBackgroundResource(R.drawable.roy)
-        }
-        else if (currLevel == 14)
-        {
-            image.setBackgroundResource(R.drawable.robert)
-        }
-
-        else if (currLevel == 15)
-        {
-            image.setBackgroundResource(R.drawable.oscar)
-        }
-        else if (currLevel == 16)
-        {
-            image.setBackgroundResource(R.drawable.darryl)
-        }
-        else if (currLevel == 17)
-        {
-            image.setBackgroundResource(R.drawable.kevin)
-        }
-
-        else if (currLevel == 18)
-        {
-            image.setBackgroundResource(R.drawable.stanley)
-        }
-
-        else if (currLevel == 19)
-        {
-            image.setBackgroundResource(R.drawable.dwight)
-        }
-        else if (currLevel == 20)
-        {
-            image.setBackgroundResource(R.drawable.michael)
-        }
-        else if (currLevel == 21)
-        {
-            image.setBackgroundResource(R.drawable.pam)
-        }
-        else
-        {
-            image.setBackgroundResource(R.drawable.jim)
-        }
-
-
-
-
-
-    }
 
 
     fun resetPrefs()

@@ -31,6 +31,12 @@ class LandingPage : AppCompatActivity()
         var nextLvl : TextView = findViewById(R.id.nextLevel)
         currentLvl.text = sharedPrefrences.getInt("level" , MODE_PRIVATE).toString()
         nextLvl.text =  (sharedPrefrences.getInt("level" , MODE_PRIVATE) + 1).toString()
+
+        var totalScore : TextView = findViewById(R.id.scoreTotal)
+        totalScore.text = sharedPrefrences.getInt("total" , MODE_PRIVATE).toString()
+
+
+
         var progressBar : ProgressBar = findViewById(R.id.progressbar_horizontal)
         ObjectAnimator.ofInt(progressBar,"progress",  ((((sharedPrefrences.getInt("score" , MODE_PRIVATE).toDouble() - (sharedPrefrences.getInt("level" , MODE_PRIVATE).toDouble() - 1) * 100) / 100) * 100) + 1).toInt())
             .setDuration(1000)

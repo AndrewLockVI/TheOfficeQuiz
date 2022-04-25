@@ -1,6 +1,7 @@
 package com.nebuladev.quizgame
 import android.animation.ObjectAnimator
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -60,6 +61,7 @@ class MainActivity : AppCompatActivity() {
             if (answer) {
                 intScore += 1
                 intQuestion += 1
+                correctAnswer()
                 score.text = intScore.toString() + "/" + intQuestion.toString()
                 answer = false
                 animationControl()
@@ -81,6 +83,7 @@ class MainActivity : AppCompatActivity() {
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
                 answer = false
+                correctAnswer()
                 animationControl()
 
             } else {
@@ -103,6 +106,7 @@ class MainActivity : AppCompatActivity() {
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
                 answer = false
+                correctAnswer()
                 animationControl()
 
             } else {
@@ -123,6 +127,7 @@ class MainActivity : AppCompatActivity() {
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
                 answer = false
+                correctAnswer()
                 animationControl()
 
             } else
@@ -142,7 +147,13 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-
+    fun correctAnswer()
+    {
+        var sharedPreferences : SharedPreferences = getSharedPreferences("score" , MODE_PRIVATE)
+        var sharedPrefEdit : SharedPreferences.Editor = sharedPreferences.edit()
+        sharedPrefEdit.putInt("total" , (sharedPreferences.getInt("total" , MODE_PRIVATE) + 1))
+        sharedPrefEdit.commit()
+    }
 
 
     fun greenCorrect()
