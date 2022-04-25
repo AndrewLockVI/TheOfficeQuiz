@@ -2,6 +2,9 @@ package com.nebuladev.quizgame
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.BlurMaskFilter
+import android.graphics.Color
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -11,6 +14,8 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.cardview.widget.CardView
+import jp.wasabeef.blurry.Blurry
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.concurrent.thread
@@ -42,6 +47,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_main)
+
+
         buttonOne = findViewById(R.id.answer_one)
 
 
@@ -69,7 +76,10 @@ class MainActivity : AppCompatActivity() {
             } else {
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
-                buttonOne.setBackgroundColor(getColor(R.color.red))
+
+
+
+                buttonOne.setBackgroundResource((R.drawable.button_standardwrong))
                 animationControl()
             }
 
@@ -90,7 +100,7 @@ class MainActivity : AppCompatActivity() {
 
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
-                buttonTwo.setBackgroundColor(getColor(R.color.red))
+                buttonTwo.setBackgroundResource(R.drawable.button_standardwrong)
                 animationControl()
 
 
@@ -112,7 +122,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
-                buttonThree.setBackgroundColor(getColor(R.color.red))
+                buttonThree.setBackgroundResource(R.drawable.button_standardwrong)
                 animationControl()
 
             }
@@ -134,7 +144,7 @@ class MainActivity : AppCompatActivity() {
             {
                 intQuestion += 1
                 score.text = intScore.toString() + "/" + intQuestion.toString()
-                buttonFour.setBackgroundColor(getColor(R.color.red))
+                buttonFour.setBackgroundResource(R.drawable.button_standardwrong)
                 animationControl()
 
 
@@ -161,19 +171,19 @@ class MainActivity : AppCompatActivity() {
 
         if(checkAnswer.answerCheck(rndInt, buttonFour.text.toString()))
         {
-            buttonFour.setBackgroundColor(getColor(R.color.green))
+            buttonFour.setBackgroundResource(R.drawable.button_standardright)
         }
         else if(checkAnswer.answerCheck(rndInt, buttonTwo.text.toString()))
         {
-            buttonTwo.setBackgroundColor(getColor(R.color.green))
+            buttonTwo.setBackgroundResource(R.drawable.button_standardright)
         }
         else if(checkAnswer.answerCheck(rndInt, buttonThree.text.toString()))
         {
-            buttonThree.setBackgroundColor(getColor(R.color.green))
+            buttonThree.setBackgroundResource(R.drawable.button_standardright)
         }
         else if(checkAnswer.answerCheck(rndInt, buttonOne.text.toString()))
         {
-            buttonOne.setBackgroundColor(getColor(R.color.green))
+            buttonOne.setBackgroundResource(R.drawable.button_standardright)
         }
     }
 
@@ -199,7 +209,7 @@ class MainActivity : AppCompatActivity() {
             {
 
                 textOne.animate().apply {
-                    duration = 1000
+                    duration = 600
                     alpha(0f)
                 }
 
@@ -207,9 +217,9 @@ class MainActivity : AppCompatActivity() {
                 var count = 0
                 while(count < 4){
                     buttons[count].animate().apply {
-                        duration = 1000
+                        duration = 600
                         alpha(0f)
-                        translationX(1500f)
+                   //     translationX(1500f)
                         count += 1
 
                     }
@@ -220,7 +230,7 @@ class MainActivity : AppCompatActivity() {
 
         }.start()
 
-        object : CountDownTimer(1500, 1000) {
+        object : CountDownTimer(1220, 1000) {
             override fun onTick(p0: Long)
             {
             }
@@ -245,8 +255,8 @@ class MainActivity : AppCompatActivity() {
                     buttons[count].animate().apply {
                         duration = 0
                         alpha(1f)
-                        translationX(0f)
-                        buttons[count].setBackgroundColor(getColor(R.color.light_blue))
+                       // translationX(0f)
+                        buttons[count].setBackgroundResource(R.drawable.button_outline)
                         count += 1
 
                     }
@@ -276,14 +286,11 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        buttonOne.x= 00f
-        buttonThree.translationX = 00f
-        buttonTwo.translationX = 00f
-        buttonFour.translationX = 00f
-        buttonOne.alpha = 1f
-        buttonTwo.alpha = 1f
-        buttonThree.alpha = 1f
-        buttonFour.alpha = 1f
+    //    buttonOne.x= 00f
+   //     buttonThree.translationX = 00f
+    //    buttonTwo.translationX = 00f
+    //    buttonFour.translationX = 00f
+
 
 
         var questionAndAnswer: List<String> = question1.question(rndInt);

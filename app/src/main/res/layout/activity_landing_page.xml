@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blue_gradient"
+    android:background="@drawable/gradient_blue_2"
     tools:context="LandingPage"
 
     >
@@ -152,6 +152,7 @@
         android:fontFamily="@font/nunito_sans"
         android:maxLines="1"
         android:text="15/15"
+        android:id="@+id/highScore"
         android:textColor="#2A93D5"
         app:layout_constraintHeight_percent=".09"
         app:layout_constraintWidth_percent=".3"
@@ -367,10 +368,12 @@
 
             <Button
                 android:id="@+id/playButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent=".07"
+                app:layout_constraintWidth_percent=".35"
                 android:alpha=".9"
-                android:backgroundTint="#5BE0FF"
+                android:background="@drawable/button_standard"
                 android:elevation="10dp"
                 android:fontFamily="@font/nunito_sans"
                 android:scaleY="1.5"
@@ -378,7 +381,6 @@
                 android:gravity="center"
                 android:text="Play Game"
                 android:textColor="@color/white"
-                app:cornerRadius="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

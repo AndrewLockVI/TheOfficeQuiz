@@ -34,7 +34,8 @@ class LandingPage : AppCompatActivity()
 
         var totalScore : TextView = findViewById(R.id.scoreTotal)
         totalScore.text = sharedPrefrences.getInt("total" , MODE_PRIVATE).toString()
-
+        var highScore : TextView = findViewById(R.id.highScore)
+        highScore.text = sharedPrefrences.getInt("high", MODE_PRIVATE).toString() + "/15"
 
 
         var progressBar : ProgressBar = findViewById(R.id.progressbar_horizontal)

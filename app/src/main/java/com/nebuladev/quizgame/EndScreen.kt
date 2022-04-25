@@ -14,6 +14,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.NotificationCompat.getExtras
 import org.w3c.dom.Text
+import java.lang.reflect.Modifier
 
 class EndScreen : AppCompatActivity() {
 
@@ -38,6 +39,10 @@ class EndScreen : AppCompatActivity() {
         var sharedPreferencesEditor : SharedPreferences.Editor = sharedPreferences.edit()
         progressBar1.progress = (((sharedPreferences.getInt("score" , MODE_PRIVATE).toDouble() - (sharedPreferences.getInt("level" , MODE_PRIVATE).toDouble() - 1) * levelScore) / levelScore) * 100).toInt()
         sharedPreferencesEditor.putInt("score", sharedPreferences.getInt("score" , 0) + score.substringBefore("/").toInt() * 10)
+
+
+
+
         sharedPreferencesEditor.commit()
         if(sharedPreferences.getInt("score", MODE_PRIVATE) >= (sharedPreferences.getInt("level", MODE_PRIVATE)) * levelScore)
         {
@@ -68,6 +73,17 @@ class EndScreen : AppCompatActivity() {
         {
             affirmation.text = "Perfect Score!"
         }
+
+        if(sharedPreferences.getInt("high", MODE_PRIVATE) < score.substringBefore("/").toInt())
+        {
+            affirmation.text = "New HighScore!"
+            sharedPreferencesEditor.putInt("high" , score.substringBefore("/").toInt())
+            sharedPreferencesEditor.commit()
+        }
+
+
+
+
 
         var totalScore : TextView = findViewById(R.id.scoreTotal)
         totalScore.text = sharedPreferences.getInt("total" , MODE_PRIVATE).toString()
