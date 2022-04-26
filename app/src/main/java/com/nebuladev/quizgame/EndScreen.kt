@@ -3,18 +3,12 @@ package com.nebuladev.quizgame
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.app.NotificationCompat.getExtras
-import org.w3c.dom.Text
-import java.lang.reflect.Modifier
 
 class EndScreen : AppCompatActivity() {
 
@@ -50,34 +44,34 @@ class EndScreen : AppCompatActivity() {
             sharedPreferencesEditor.putInt("level" , sharedPreferences.getInt("level", MODE_PRIVATE) + 1)
         }
         var scoreOutOf : TextView = findViewById(R.id.totalScore)
-        scoreOutOf.text = score.substringBefore("/") + " / 15"
+        scoreOutOf.text = score
 
 
-        if(score.substringBefore("/").toInt() < 4)
+        if(score.toInt() < 4)
         {
             affirmation.text = "Keep Going!"
         }
-        else if(score.substringBefore("/").toInt() < 6)
+        else if(score.toInt() < 6)
         {
             affirmation.text = "Pretty Good!"
         }
-        else if(score.substringBefore("/").toInt() < 7)
+        else if(score.toInt() < 7)
         {
             affirmation.text = "Nice Job!"
         }
-        else if(score.substringBefore("/").toInt() <= 12)
+        else if(score.toInt() <= 12)
         {
             affirmation.text = "Wow Amazing!"
         }
-        else if(score.substringBefore("/").toInt() == 15)
+        else if(score.toInt() == 15)
         {
             affirmation.text = "Perfect Score!"
         }
 
-        if(sharedPreferences.getInt("high", MODE_PRIVATE) < score.substringBefore("/").toInt())
+        if(sharedPreferences.getInt("high", MODE_PRIVATE) < score.toInt())
         {
             affirmation.text = "New HighScore!"
-            sharedPreferencesEditor.putInt("high" , score.substringBefore("/").toInt())
+            sharedPreferencesEditor.putInt("high" , score.toInt())
             sharedPreferencesEditor.commit()
         }
 
@@ -119,6 +113,13 @@ class EndScreen : AppCompatActivity() {
             var intentMenu : Intent = Intent(this,LandingPage::class.java)
             startActivity(intentMenu)
         }
+
+        var settingsBtn : Button = findViewById(R.id.settings)
+        settingsBtn.setOnClickListener(){
+            var intentSetting : Intent = Intent(this, SettingScreen::class.java)
+            startActivity(intentSetting)
+        }
+
 
 
         var playAgain : Button = findViewById(R.id.playButton)

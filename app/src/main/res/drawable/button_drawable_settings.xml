@@ -3,12 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <solid android:color="@color/light_blue">
     </solid>
+    <stroke
+        android:color="@color/white"
+        android:width="1dp"
+        >
 
+    </stroke>
     <corners android:radius="20dp"/>
-    <gradient android:type="radial" android:gradientRadius="500dp"
-        android:startColor="#14D2FF"
-        android:endColor="@color/light_blue"
-
+    <gradient android:type="linear" android:angle="70"
+        android:startColor="#FF72C6ED"
+        android:endColor="@color/complement_blue"
         >
     </gradient>
 

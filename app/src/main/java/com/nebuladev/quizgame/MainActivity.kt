@@ -5,9 +5,11 @@ import android.content.SharedPreferences
 import android.graphics.BlurMaskFilter
 import android.graphics.Color
 import android.graphics.drawable.Drawable
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.SoundEffectConstants
 import android.view.View
 import android.view.animation.Animation
 import android.widget.Button
@@ -69,17 +71,19 @@ class MainActivity : AppCompatActivity() {
                 intScore += 1
                 intQuestion += 1
                 correctAnswer()
-                score.text = intScore.toString() + "/" + intQuestion.toString()
+                score.text = intScore.toString()
                 answer = false
                 animationControl()
 
             } else {
                 intQuestion += 1
-                score.text = intScore.toString() + "/" + intQuestion.toString()
+                score.text = intScore.toString()
 
 
 
                 buttonOne.setBackgroundResource((R.drawable.button_standardwrong))
+                var media : MediaPlayer = MediaPlayer.create(this , R.raw.incorrect)
+                media.start()
                 animationControl()
             }
 
@@ -91,7 +95,7 @@ class MainActivity : AppCompatActivity() {
             if (answer) {
                 intScore += 1
                 intQuestion += 1
-                score.text = intScore.toString() + "/" + intQuestion.toString()
+                score.text = intScore.toString()
                 answer = false
                 correctAnswer()
                 animationControl()
@@ -99,8 +103,10 @@ class MainActivity : AppCompatActivity() {
             } else {
 
                 intQuestion += 1
-                score.text = intScore.toString() + "/" + intQuestion.toString()
+                score.text = intScore.toString()
                 buttonTwo.setBackgroundResource(R.drawable.button_standardwrong)
+                var media : MediaPlayer = MediaPlayer.create(this , R.raw.incorrect)
+                media.start()
                 animationControl()
 
 
@@ -114,15 +120,17 @@ class MainActivity : AppCompatActivity() {
             if (answer) {
                 intScore += 1
                 intQuestion += 1
-                score.text = intScore.toString() + "/" + intQuestion.toString()
+                score.text = intScore.toString()
                 answer = false
                 correctAnswer()
                 animationControl()
 
             } else {
                 intQuestion += 1
-                score.text = intScore.toString() + "/" + intQuestion.toString()
+                score.text = intScore.toString()
                 buttonThree.setBackgroundResource(R.drawable.button_standardwrong)
+                var media : MediaPlayer = MediaPlayer.create(this , R.raw.incorrect)
+                media.start()
                 animationControl()
 
             }
@@ -135,7 +143,7 @@ class MainActivity : AppCompatActivity() {
             if (answer) {
                 intScore += 1
                 intQuestion += 1
-                score.text = intScore.toString() + "/" + intQuestion.toString()
+                score.text = intScore.toString()
                 answer = false
                 correctAnswer()
                 animationControl()
@@ -143,8 +151,10 @@ class MainActivity : AppCompatActivity() {
             } else
             {
                 intQuestion += 1
-                score.text = intScore.toString() + "/" + intQuestion.toString()
+                score.text = intScore.toString()
                 buttonFour.setBackgroundResource(R.drawable.button_standardwrong)
+                var media : MediaPlayer = MediaPlayer.create(this , R.raw.incorrect)
+                media.start()
                 animationControl()
 
 
@@ -163,6 +173,8 @@ class MainActivity : AppCompatActivity() {
         var sharedPrefEdit : SharedPreferences.Editor = sharedPreferences.edit()
         sharedPrefEdit.putInt("total" , (sharedPreferences.getInt("total" , MODE_PRIVATE) + 1))
         sharedPrefEdit.commit()
+        var media : MediaPlayer = MediaPlayer.create(this , R.raw.correct)
+        media.start()
     }
 
 
@@ -236,7 +248,7 @@ class MainActivity : AppCompatActivity() {
             }
             override fun onFinish()
             {
-                if(questionsUsed.size == 2)
+                if(score.text.toString().toInt() < questionsUsed.size)
                 {
 
                     intent.putExtra("score" , score.text)

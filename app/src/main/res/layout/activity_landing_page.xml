@@ -151,7 +151,7 @@
         android:autoSizeTextType="uniform"
         android:fontFamily="@font/nunito_sans"
         android:maxLines="1"
-        android:text="15/15"
+        android:text="15"
         android:id="@+id/highScore"
         android:textColor="#2A93D5"
         app:layout_constraintHeight_percent=".09"
