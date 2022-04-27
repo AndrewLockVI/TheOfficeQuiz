@@ -3,14 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1895" />
+        <entry key="app/src/main/res/drawable/back_arrow.xml" value="0.1895" />
         <entry key="app/src/main/res/drawable/backgroundshadow.xml" value="0.3375" />
         <entry key="app/src/main/res/drawable/blue_gradient.xml" value="0.317" />
+        <entry key="app/src/main/res/drawable/btn_std_wro.xml" value="0.1895" />
         <entry key="app/src/main/res/drawable/button_drawable_settings.xml" value="0.3375" />
         <entry key="app/src/main/res/drawable/button_outline.xml" value="0.415" />
         <entry key="app/src/main/res/drawable/button_shadow.xml" value="0.317" />
         <entry key="app/src/main/res/drawable/button_standard.xml" value="0.3135" />
         <entry key="app/src/main/res/drawable/button_standardRight.xml" value="0.3135" />
         <entry key="app/src/main/res/drawable/button_standardWrong.xml" value="0.3135" />
+        <entry key="app/src/main/res/drawable/button_standardright.xml" value="0.258" />
+        <entry key="app/src/main/res/drawable/button_standardwrong.xml" value="0.338" />
         <entry key="app/src/main/res/drawable/circle.xml" value="0.2885" />
         <entry key="app/src/main/res/drawable/gradient_blue_2.xml" value="0.247" />
         <entry key="app/src/main/res/drawable/gradient_lightblue_white.xml" value="0.2885" />
@@ -19,10 +24,13 @@
         <entry key="app/src/main/res/drawable/progress_bar_circualr.xml" value="0.317" />
         <entry key="app/src/main/res/drawable/progress_bar_horiz.xml" value="0.317" />
         <entry key="app/src/main/res/drawable/progress_gradient.xml" value="0.247" />
+        <entry key="app/src/main/res/drawable/reset.xml" value="0.1895" />
         <entry key="app/src/main/res/drawable/rounded_image_view.xml" value="0.2885" />
         <entry key="app/src/main/res/drawable/settings.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/settings_figma.xml" value="0.317" />
         <entry key="app/src/main/res/drawable/shadow.xml" value="0.247" />
+        <entry key="app/src/main/res/drawable/smile.xml" value="0.1895" />
+        <entry key="app/src/main/res/drawable/sound_on.xml" value="0.1895" />
         <entry key="app/src/main/res/layout-large/activity_landing_page.xml" value="0.18" />
         <entry key="app/src/main/res/layout-normal/activity_landing_page.xml" value="0.16" />
         <entry key="app/src/main/res/layout-small/activity_landing_page.xml" value="1.0" />
@@ -30,7 +38,7 @@
         <entry key="app/src/main/res/layout/LandingPage.xml" value="0.2644736842105263" />
         <entry key="app/src/main/res/layout/activity_end_screen.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_landing_page.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.2644736842105263" />
         <entry key="app/src/main/res/layout/activity_setting_screen.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_settings.xml" value="0.25769230769230766" />

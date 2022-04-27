@@ -1,26 +1,13 @@
 package com.nebuladev.quizgame
-import android.animation.ObjectAnimator
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.BlurMaskFilter
-import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.view.SoundEffectConstants
-import android.view.View
-import android.view.animation.Animation
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.cardview.widget.CardView
-import jp.wasabeef.blurry.Blurry
-import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.concurrent.thread
 import kotlin.math.roundToInt
 
 
@@ -81,7 +68,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-                buttonOne.setBackgroundResource((R.drawable.button_standardwrong))
+                buttonOne.setBackgroundResource((R.drawable.btn_std_wro))
                 var media : MediaPlayer = MediaPlayer.create(this , R.raw.incorrect)
                 media.start()
                 animationControl()
@@ -104,7 +91,7 @@ class MainActivity : AppCompatActivity() {
 
                 intQuestion += 1
                 score.text = intScore.toString()
-                buttonTwo.setBackgroundResource(R.drawable.button_standardwrong)
+                buttonTwo.setBackgroundResource(R.drawable.btn_std_wro)
                 var media : MediaPlayer = MediaPlayer.create(this , R.raw.incorrect)
                 media.start()
                 animationControl()
@@ -128,7 +115,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 intQuestion += 1
                 score.text = intScore.toString()
-                buttonThree.setBackgroundResource(R.drawable.button_standardwrong)
+                buttonThree.setBackgroundResource(R.drawable.btn_std_wro)
                 var media : MediaPlayer = MediaPlayer.create(this , R.raw.incorrect)
                 media.start()
                 animationControl()
@@ -152,7 +139,7 @@ class MainActivity : AppCompatActivity() {
             {
                 intQuestion += 1
                 score.text = intScore.toString()
-                buttonFour.setBackgroundResource(R.drawable.button_standardwrong)
+                buttonFour.setBackgroundResource(R.drawable.btn_std_wro)
                 var media : MediaPlayer = MediaPlayer.create(this , R.raw.incorrect)
                 media.start()
                 animationControl()

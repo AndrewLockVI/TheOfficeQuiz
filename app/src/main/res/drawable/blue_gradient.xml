@@ -7,7 +7,7 @@
 
             android:endColor="@color/light_blue"
             android:type="linear"
-            android:angle="50"
+            android:angle="45"
             />
 
         </shape>

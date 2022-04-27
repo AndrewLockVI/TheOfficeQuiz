@@ -70,7 +70,7 @@ class EndScreen : AppCompatActivity() {
 
         if(sharedPreferences.getInt("high", MODE_PRIVATE) < score.toInt())
         {
-            affirmation.text = "New HighScore!"
+            affirmation.text = "New Highscore!"
             sharedPreferencesEditor.putInt("high" , score.toInt())
             sharedPreferencesEditor.commit()
         }
