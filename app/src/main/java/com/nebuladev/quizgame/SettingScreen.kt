@@ -3,6 +3,7 @@ package com.nebuladev.quizgame
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.Button
 
@@ -16,7 +17,7 @@ class SettingScreen : AppCompatActivity() {
         backArrow.setOnClickListener(){
 
             startActivity(intentMenu)
-
+            overridePendingTransition(R.anim.landing_in, R.anim.setting_out_toleft)
         }
 
 

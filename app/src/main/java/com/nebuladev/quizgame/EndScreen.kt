@@ -112,12 +112,15 @@ class EndScreen : AppCompatActivity() {
         mainMenu.setOnClickListener(){
             var intentMenu : Intent = Intent(this,LandingPage::class.java)
             startActivity(intentMenu)
+            overridePendingTransition(R.anim.landing_in, R.anim.setting_out_toleft)
+
         }
 
         var settingsBtn : Button = findViewById(R.id.settings)
         settingsBtn.setOnClickListener(){
             var intentSetting : Intent = Intent(this, SettingScreen::class.java)
             startActivity(intentSetting)
+            overridePendingTransition(R.anim.sliding_setting, R.anim.sliding_setting_out)
         }
 
 
@@ -126,7 +129,7 @@ class EndScreen : AppCompatActivity() {
         playAgain.setOnClickListener(){
             var intentPlay : Intent = Intent(this,MainActivity::class.java)
             startActivity(intentPlay)
-
+            overridePendingTransition( R.anim.slide_down , R.anim.slide_up );
         }
 
 

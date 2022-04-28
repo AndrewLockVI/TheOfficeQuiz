@@ -43,6 +43,24 @@ class LandingPage : AppCompatActivity()
             .setDuration(1000)
             .start()
 
+
+
+
+
+        var settingsBtn : Button = findViewById(R.id.settings)
+        settingsBtn.setOnClickListener(){
+            var intentSetting : Intent = Intent(this, SettingScreen::class.java)
+            startActivity(intentSetting)
+            overridePendingTransition(R.anim.sliding_setting, R.anim.sliding_setting_out)
+        }
+
+
+
+
+
+
+
+
     }
 
 
@@ -51,7 +69,7 @@ class LandingPage : AppCompatActivity()
     {
         val intent = Intent(this , MainActivity::class.java)
         startActivity(intent)
-
+        overridePendingTransition( R.anim.slide_down , R.anim.slide_up );
     }
 
 }

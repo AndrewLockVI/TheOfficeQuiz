@@ -1,12 +1,14 @@
 package com.nebuladev.quizgame
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.media.MediaPlayer
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import kotlin.math.roundToInt
 
@@ -34,9 +36,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        setContentView(R.layout.activity_main)
 
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+
+        setContentView(R.layout.activity_main)
 
         buttonOne = findViewById(R.id.answer_one)
 
@@ -206,6 +210,13 @@ class MainActivity : AppCompatActivity() {
             }
             override fun onFinish()
             {
+                if(score.text.toString().toInt() < questionsUsed.size)
+                {
+
+                    intent.putExtra("score" , score.text)
+                    startActivity(intent)
+                    overridePendingTransition(   R.anim.slide_from_top , R.anim.slide_from_top_down );
+                }
 
                 textOne.animate().apply {
                     duration = 600
@@ -235,14 +246,9 @@ class MainActivity : AppCompatActivity() {
             }
             override fun onFinish()
             {
-                if(score.text.toString().toInt() < questionsUsed.size)
-                {
 
-                    intent.putExtra("score" , score.text)
-                    startActivity(intent)
-                }
-                else
-                {
+
+
 
                 textOne.animate().apply {
                     duration = 0
@@ -260,7 +266,7 @@ class MainActivity : AppCompatActivity() {
 
                     }
                 }
-                }
+
                 nextQuestion()
                 click.changeClick(buttonOne , buttonTwo , buttonThree , buttonFour)
             }
