@@ -36,6 +36,8 @@
         <entry key="app/src/main/res/layout-small/activity_landing_page.xml" value="1.0" />
         <entry key="app/src/main/res/layout-xlarge/activity_landing_page.xml" value="0.47109375" />
         <entry key="app/src/main/res/layout/LandingPage.xml" value="0.2644736842105263" />
+        <entry key="app/src/main/res/layout/activity_about_screen.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_contact_screen.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_end_screen.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_landing_page.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16" />

@@ -16,9 +16,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizGame">
         <activity
+            android:name=".Contact_screen"
+            android:exported="false" />
+        <activity
+            android:name=".About_Screen"
+            android:exported="false" />
+        <activity
             android:name=".SettingScreen"
             android:exported="false" />
-
         <activity
             android:name=".EndScreen"
             android:exported="false" />
