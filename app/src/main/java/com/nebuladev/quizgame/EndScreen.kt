@@ -34,18 +34,18 @@ class EndScreen : AppCompatActivity() {
         progressBar1.progress = (((sharedPreferences.getInt("score" , MODE_PRIVATE).toDouble() - (sharedPreferences.getInt("level" , MODE_PRIVATE).toDouble() - 1) * levelScore) / levelScore) * 100).toInt()
         sharedPreferencesEditor.putInt("score", sharedPreferences.getInt("score" , 0) + score.substringBefore("/").toInt() * 10)
 
-
-
-
         sharedPreferencesEditor.commit()
-        if(sharedPreferences.getInt("score", MODE_PRIVATE) >= (sharedPreferences.getInt("level", MODE_PRIVATE)) * levelScore)
+        while(sharedPreferences.getInt("score", MODE_PRIVATE) >= (sharedPreferences.getInt("level", MODE_PRIVATE)) * levelScore)
         {
            affirmation.text = "Level Up!"
             sharedPreferencesEditor.putInt("level" , sharedPreferences.getInt("level", MODE_PRIVATE) + 1)
+            sharedPreferencesEditor.commit()
         }
         var scoreOutOf : TextView = findViewById(R.id.totalScore)
         scoreOutOf.text = score
 
+        var level : TextView = findViewById(R.id.frontpageLvl)
+        level.text = "level " + sharedPreferences.getInt("level" , MODE_PRIVATE)
 
         if(score.toInt() < 4)
         {

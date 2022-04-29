@@ -26,6 +26,22 @@ class LandingPage : AppCompatActivity()
         }
         var level : TextView = findViewById(R.id.frontpageLvl)
         var sharedPrefrences : SharedPreferences = getSharedPreferences("score" , MODE_PRIVATE)
+        var sharedPreferencesEditor : SharedPreferences.Editor = sharedPrefrences.edit()
+        while(sharedPrefrences.getInt("score", MODE_PRIVATE) >= (sharedPrefrences.getInt("level", MODE_PRIVATE)) * 100)
+        {
+            sharedPreferencesEditor.putInt("level" , sharedPrefrences.getInt("level", MODE_PRIVATE) + 1)
+            sharedPreferencesEditor.commit()
+        }
+
+
+
+
+
+
+
+
+
+
         level.text = "level " + sharedPrefrences.getInt("level" , MODE_PRIVATE)
         var currentLvl : TextView = findViewById(R.id.currLevel)
         var nextLvl : TextView = findViewById(R.id.nextLevel)
@@ -53,7 +69,6 @@ class LandingPage : AppCompatActivity()
             startActivity(intentSetting)
             overridePendingTransition(R.anim.sliding_setting, R.anim.sliding_setting_out)
         }
-
 
 
 
