@@ -21,6 +21,7 @@
         <entry key="app/src/main/res/drawable/gradient_lightblue_white.xml" value="0.2885" />
         <entry key="app/src/main/res/drawable/menu.xml" value="0.3135" />
         <entry key="app/src/main/res/drawable/mute.xml" value="0.317" />
+        <entry key="app/src/main/res/drawable/outline.xml" value="0.214" />
         <entry key="app/src/main/res/drawable/progress_bar_circualr.xml" value="0.317" />
         <entry key="app/src/main/res/drawable/progress_bar_horiz.xml" value="0.317" />
         <entry key="app/src/main/res/drawable/progress_gradient.xml" value="0.247" />
@@ -36,8 +37,9 @@
         <entry key="app/src/main/res/layout-small/activity_landing_page.xml" value="1.0" />
         <entry key="app/src/main/res/layout-xlarge/activity_landing_page.xml" value="0.47109375" />
         <entry key="app/src/main/res/layout/LandingPage.xml" value="0.2644736842105263" />
-        <entry key="app/src/main/res/layout/activity_about_screen.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/activity_contact_screen.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_about_screen.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_contact_screen.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_credits_screen.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_end_screen.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_landing_page.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16" />

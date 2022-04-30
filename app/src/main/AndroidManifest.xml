@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizGame">
         <activity
+            android:name=".credits_screen"
+            android:exported="false" />
+        <activity
             android:name=".Contact_screen"
             android:exported="false" />
         <activity

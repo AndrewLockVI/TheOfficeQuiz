@@ -5,11 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 
-class Contact_screen : AppCompatActivity() {
+class credits_screen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_contact_screen)
-
+        setContentView(R.layout.activity_credits_screen)
         var backArrow : Button = findViewById(R.id.backArrow)
         var intentSetting : Intent = Intent(this, SettingScreen::class.java)
         backArrow.setOnClickListener(){
@@ -17,6 +16,5 @@ class Contact_screen : AppCompatActivity() {
             startActivity(intentSetting)
             overridePendingTransition(R.anim.landing_in, R.anim.setting_out_toleft)
         }
-
     }
 }
