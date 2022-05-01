@@ -70,6 +70,15 @@ class LandingPage : AppCompatActivity()
             overridePendingTransition(R.anim.sliding_setting, R.anim.sliding_setting_out)
         }
 
+        var percent = scorePercent()
+
+        var score : TextView = findViewById(R.id.highScoreTextPercent)
+        score.text = percent.scorePercentReturn(sharedPrefrences.getInt("high" , MODE_PRIVATE)).toString() + "%"
+
+
+        var total : TextView = findViewById(R.id.correctAnswerPercenttxt)
+        total.text = percent.totalPercentReturn(sharedPrefrences.getInt("total" , MODE_PRIVATE)).toString() + "%"
+
 
 
 

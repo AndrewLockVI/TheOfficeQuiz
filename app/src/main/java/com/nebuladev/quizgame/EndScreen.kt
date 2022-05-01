@@ -133,6 +133,17 @@ class EndScreen : AppCompatActivity() {
         }
 
 
+        var percent = scorePercent()
+
+        var scoreHigh : TextView = findViewById(R.id.highScoreTextPercent)
+        scoreHigh.text = percent.scorePercentReturn(score.toInt()).toString() + "%"
+
+
+        var total : TextView = findViewById(R.id.correctAnswerPercenttxt)
+        total.text = percent.totalPercentReturn(sharedPreferences.getInt("total" , MODE_PRIVATE)).toString() + "%"
+
+
+
 
     }
 
