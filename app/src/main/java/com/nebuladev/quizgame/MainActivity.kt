@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
     private var questionsUsed : List<Int> = listOf()
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -69,12 +68,14 @@ class MainActivity : AppCompatActivity() {
             } else {
                 intQuestion += 1
                 score.text = intScore.toString()
-
-
-
                 buttonOne.setBackgroundResource((R.drawable.btn_std_wro))
-                var media : MediaPlayer = MediaPlayer.create(this , R.raw.incorrect)
-                media.start()
+
+                var prefs : SharedPreferences = getSharedPreferences("sound" , MODE_PRIVATE)
+                if(prefs.getBoolean("sfx" , false))
+                {
+                    var media: MediaPlayer = MediaPlayer.create(this, R.raw.incorrect)
+                    media.start()
+                }
                 animationControl()
             }
 
@@ -96,8 +97,13 @@ class MainActivity : AppCompatActivity() {
                 intQuestion += 1
                 score.text = intScore.toString()
                 buttonTwo.setBackgroundResource(R.drawable.btn_std_wro)
-                var media : MediaPlayer = MediaPlayer.create(this , R.raw.incorrect)
-                media.start()
+
+
+                var prefs : SharedPreferences = getSharedPreferences("sound" , MODE_PRIVATE)
+                if(prefs.getBoolean("sfx" , false)) {
+                    var media: MediaPlayer = MediaPlayer.create(this, R.raw.incorrect)
+                    media.start()
+                }
                 animationControl()
 
 
@@ -120,8 +126,11 @@ class MainActivity : AppCompatActivity() {
                 intQuestion += 1
                 score.text = intScore.toString()
                 buttonThree.setBackgroundResource(R.drawable.btn_std_wro)
-                var media : MediaPlayer = MediaPlayer.create(this , R.raw.incorrect)
-                media.start()
+                var prefs : SharedPreferences = getSharedPreferences("sound" , MODE_PRIVATE)
+                if(prefs.getBoolean("sfx" , false)) {
+                    var media: MediaPlayer = MediaPlayer.create(this, R.raw.incorrect)
+                    media.start()
+                }
                 animationControl()
 
             }
@@ -144,8 +153,11 @@ class MainActivity : AppCompatActivity() {
                 intQuestion += 1
                 score.text = intScore.toString()
                 buttonFour.setBackgroundResource(R.drawable.btn_std_wro)
-                var media : MediaPlayer = MediaPlayer.create(this , R.raw.incorrect)
-                media.start()
+                var prefs : SharedPreferences = getSharedPreferences("sound" , MODE_PRIVATE)
+                if(prefs.getBoolean("sfx" , false)) {
+                    var media: MediaPlayer = MediaPlayer.create(this, R.raw.incorrect)
+                    media.start()
+                }
                 animationControl()
 
 
@@ -164,8 +176,11 @@ class MainActivity : AppCompatActivity() {
         var sharedPrefEdit : SharedPreferences.Editor = sharedPreferences.edit()
         sharedPrefEdit.putInt("total" , (sharedPreferences.getInt("total" , MODE_PRIVATE) + 1))
         sharedPrefEdit.commit()
-        var media : MediaPlayer = MediaPlayer.create(this , R.raw.correct)
-        media.start()
+        var prefs : SharedPreferences = getSharedPreferences("sound" , MODE_PRIVATE)
+        if(prefs.getBoolean("sfx" , false)) {
+            var media: MediaPlayer = MediaPlayer.create(this, R.raw.correct)
+            media.start()
+        }
     }
 
 

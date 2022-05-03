@@ -33,7 +33,15 @@ class LandingPage : AppCompatActivity()
             sharedPreferencesEditor.commit()
         }
 
-
+        if(sharedPrefrences.getBoolean("first" , false) == false)
+        {
+            var prefs : SharedPreferences = getSharedPreferences("sound" , MODE_PRIVATE)
+            var prefsEditor = prefs.edit()
+            prefsEditor.putBoolean("sfx" , true)
+            prefsEditor.commit()
+            sharedPreferencesEditor.putBoolean("first" , true)
+            sharedPreferencesEditor.commit()
+        }
 
 
 
