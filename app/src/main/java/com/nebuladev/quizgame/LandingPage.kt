@@ -4,25 +4,31 @@ import android.animation.ObjectAnimator
 import android.content.Intent
 import android.content.SharedPreferences
 import android.media.MediaPlayer
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import org.w3c.dom.Text
 
 class LandingPage : AppCompatActivity()
 {
 
     private lateinit var playGame : Button
-    private lateinit var media : MediaPlayer
+    lateinit var media : MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_landing_page)
-        musicPlay()
+
+
+        var sharedPrefs : SharedPreferences = getSharedPreferences("music" , MODE_PRIVATE)
+        if(sharedPrefs.getBoolean("music",true)) {
+            val svc = Intent(this, BackgroundSoundService::class.java)
+            startService(svc)
+        }
+
 
         playGame = findViewById(R.id.playButton)
         playGame.setOnClickListener(){
@@ -110,9 +116,6 @@ class LandingPage : AppCompatActivity()
 
     public fun musicPlay()
     {
-        media = MediaPlayer.create(this, R.raw.the_office_background)
-        media.setLooping(true)
-        media.setVolume(1.0f,1.0f)
         media.start()
     }
 

@@ -14,6 +14,42 @@ class SettingScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting_screen)
+        var sharedPrefs : SharedPreferences = getSharedPreferences("music" , MODE_PRIVATE)
+        var sharedPrefsEdit : SharedPreferences.Editor = sharedPrefs.edit()
+
+
+        var switchMusic : Switch = findViewById(R.id.musicSwitch)
+
+        if (sharedPrefs.getBoolean("music",true) == false)
+        {
+            switchMusic.isChecked = false
+        }
+
+
+        switchMusic.setOnClickListener(){
+            if(switchMusic.isChecked == true)
+            {
+                val svc = Intent(this, BackgroundSoundService::class.java)
+                startService(svc)
+                sharedPrefsEdit.putBoolean("music" , true)
+                sharedPrefsEdit.commit()
+            }
+            if(switchMusic.isChecked == false)
+            {
+                val svc = Intent(this, BackgroundSoundService::class.java)
+                stopService(svc)
+                sharedPrefsEdit.putBoolean("music" , false)
+                sharedPrefsEdit.commit()
+            }
+        }
+
+
+
+
+
+
+
+
 
         var prefs1 : SharedPreferences = getSharedPreferences("sound" , MODE_PRIVATE)
         var switchSoundEffect : Switch = findViewById(R.id.soundSwitch)
