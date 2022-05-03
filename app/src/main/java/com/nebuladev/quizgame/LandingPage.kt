@@ -3,6 +3,7 @@ package com.nebuladev.quizgame
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.content.SharedPreferences
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -15,11 +16,14 @@ class LandingPage : AppCompatActivity()
 {
 
     private lateinit var playGame : Button
+    private lateinit var media : MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_landing_page)
+        musicPlay()
+
         playGame = findViewById(R.id.playButton)
         playGame.setOnClickListener(){
             playGame()
@@ -33,6 +37,7 @@ class LandingPage : AppCompatActivity()
             sharedPreferencesEditor.commit()
         }
 
+
         if(sharedPrefrences.getBoolean("first" , false) == false)
         {
             var prefs : SharedPreferences = getSharedPreferences("sound" , MODE_PRIVATE)
@@ -42,7 +47,6 @@ class LandingPage : AppCompatActivity()
             sharedPreferencesEditor.putBoolean("first" , true)
             sharedPreferencesEditor.commit()
         }
-
 
 
 
@@ -103,5 +107,14 @@ class LandingPage : AppCompatActivity()
         startActivity(intent)
         overridePendingTransition( R.anim.slide_down , R.anim.slide_up );
     }
+
+    public fun musicPlay()
+    {
+        media = MediaPlayer.create(this, R.raw.the_office_background)
+        media.setLooping(true)
+        media.setVolume(1.0f,1.0f)
+        media.start()
+    }
+
 
 }
