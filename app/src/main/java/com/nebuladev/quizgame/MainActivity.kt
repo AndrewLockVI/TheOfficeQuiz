@@ -6,11 +6,16 @@ import android.graphics.drawable.ColorDrawable
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import kotlin.math.roundToInt
 
 
@@ -31,7 +36,8 @@ class MainActivity : AppCompatActivity() {
     private var answer = false
     private var rndInt : Int = 0
     private var questionsUsed : List<Int> = listOf()
-
+    private var minterstitialAd : InterstitialAd? = null
+    private final var TAG = "Ta"
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -52,6 +58,37 @@ class MainActivity : AppCompatActivity() {
         score = findViewById(R.id.txtScore)
         nextQuestion()
         MobileAds.initialize(this) {}
+
+        var adRequest = AdRequest.Builder().build()
+
+        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback()
+        {
+            override fun onAdFailedToLoad(adError: LoadAdError)
+            {
+                Log.d(TAG, adError?.message)
+                minterstitialAd = null
+
+            }
+
+            override fun onAdLoaded(interstitialAd: InterstitialAd)
+            {
+                Log.d(TAG, "Ad was loaded.")
+                minterstitialAd = interstitialAd
+
+            }
+        })
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -212,6 +249,7 @@ class MainActivity : AppCompatActivity() {
 
     fun animationControl()
     {
+
         click.changeClick(buttonOne , buttonTwo , buttonThree , buttonFour)
         greenCorrect()
         animationRun()
@@ -232,10 +270,10 @@ class MainActivity : AppCompatActivity() {
             {
                 if(score.text.toString().toInt() < questionsUsed.size)
                 {
-
                     intent.putExtra("score" , score.text)
                     startActivity(intent)
                     overridePendingTransition(   R.anim.slide_from_top , R.anim.slide_from_top_down );
+                    minterstitialAd?.show(this@MainActivity)
                 }
 
                 textOne.animate().apply {
@@ -328,6 +366,8 @@ class MainActivity : AppCompatActivity() {
         buttonThree.text = questionAndAnswer[answerOrder[2]]
         buttonFour.text = questionAndAnswer[answerOrder[3]]
     }
+
+
 
 
 }
