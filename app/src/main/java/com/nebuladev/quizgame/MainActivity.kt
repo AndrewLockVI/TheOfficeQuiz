@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import com.google.android.gms.ads.MobileAds
 import kotlin.math.roundToInt
 
 
@@ -50,6 +51,8 @@ class MainActivity : AppCompatActivity() {
         textOne = findViewById(R.id.txtQuestion)
         score = findViewById(R.id.txtScore)
         nextQuestion()
+        MobileAds.initialize(this) {}
+
 
 
 
