@@ -10,24 +10,19 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import kotlin.math.log
 
 class LandingPage : AppCompatActivity()
 {
 
     private lateinit var playGame : Button
     lateinit var media : MediaPlayer
+    private var newscreen : Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_landing_page)
-
-
-        var sharedPrefs : SharedPreferences = getSharedPreferences("music" , MODE_PRIVATE)
-        if(sharedPrefs.getBoolean("music",true)) {
-            val svc = Intent(this, BackgroundSoundService::class.java)
-            startService(svc)
-        }
 
 
         playGame = findViewById(R.id.playButton)
@@ -85,7 +80,9 @@ class LandingPage : AppCompatActivity()
         settingsBtn.setOnClickListener(){
             var intentSetting : Intent = Intent(this, SettingScreen::class.java)
             startActivity(intentSetting)
+            newscreen = true
             overridePendingTransition(R.anim.sliding_setting, R.anim.sliding_setting_out)
+
         }
 
         var percent = scorePercent()
@@ -107,16 +104,38 @@ class LandingPage : AppCompatActivity()
 
 
 
+
+
     fun playGame()
     {
         val intent = Intent(this , MainActivity::class.java)
         startActivity(intent)
+        newscreen = true
         overridePendingTransition( R.anim.slide_down , R.anim.slide_up );
     }
 
-    public fun musicPlay()
-    {
-        media.start()
+
+    @Override
+    override fun onStop() {
+        super.onStop()
+        if(newscreen == false) {
+            val svc = Intent(this, BackgroundSoundService::class.java)
+            stopService(svc)
+        }
+
+    }
+
+
+    @Override
+    override fun onStart() {
+
+        super.onStart()
+        var sharedPrefs : SharedPreferences = getSharedPreferences("music" , MODE_PRIVATE)
+        if(sharedPrefs.getBoolean("music" , true) == true) {
+            val svc = Intent(this, BackgroundSoundService::class.java)
+            startService(svc)
+        }
+
     }
 
 

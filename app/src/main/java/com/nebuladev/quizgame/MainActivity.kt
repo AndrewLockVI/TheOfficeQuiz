@@ -21,6 +21,7 @@ import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
 
+    private var newscreen : Boolean = false
     private lateinit var buttonOne: Button;
     private var intScore = 0
     private var intQuestion = 0
@@ -47,6 +48,9 @@ class MainActivity : AppCompatActivity() {
 
 
         setContentView(R.layout.activity_main)
+
+
+
 
         buttonOne = findViewById(R.id.answer_one)
 
@@ -272,6 +276,7 @@ class MainActivity : AppCompatActivity() {
                 {
                     intent.putExtra("score" , score.text)
                     startActivity(intent)
+                    newscreen = true
                     overridePendingTransition(   R.anim.slide_from_top , R.anim.slide_from_top_down );
                     minterstitialAd?.show(this@MainActivity)
                 }
@@ -368,6 +373,27 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    @Override
+    override fun onStop() {
+        super.onStop()
+        if(newscreen == false) {
+            val svc = Intent(this, BackgroundSoundService::class.java)
+            stopService(svc)
+        }
 
+    }
+
+
+    @Override
+    override fun onStart() {
+
+        super.onStart()
+        var sharedPrefs : SharedPreferences = getSharedPreferences("music" , MODE_PRIVATE)
+        if(sharedPrefs.getBoolean("music" , true) == true) {
+            val svc = Intent(this, BackgroundSoundService::class.java)
+            startService(svc)
+        }
+
+    }
 
 }

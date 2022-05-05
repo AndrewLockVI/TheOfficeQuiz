@@ -29,19 +29,10 @@ public class BackgroundSoundService extends Service {
     }
 
     public void onStart(Intent intent, int startId) {
-        // TO DO
-    }
-    public IBinder onUnBind(Intent arg0) {
-        // TO DO Auto-generated method
-        return null;
+        player.start();
     }
 
-    public void onStop() {
 
-    }
-    public void onPause() {
-
-    }
     @Override
     public void onDestroy() {
         player.stop();

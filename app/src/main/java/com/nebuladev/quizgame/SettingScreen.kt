@@ -11,6 +11,8 @@ import android.widget.Button
 import android.widget.Switch
 
 class SettingScreen : AppCompatActivity() {
+
+    private var newscreen = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting_screen)
@@ -69,6 +71,7 @@ class SettingScreen : AppCompatActivity() {
         backArrow.setOnClickListener(){
 
             startActivity(intentMenu)
+            newscreen = true
             overridePendingTransition(R.anim.landing_in, R.anim.setting_out_toleft)
         }
 
@@ -79,6 +82,7 @@ class SettingScreen : AppCompatActivity() {
         contact.setOnClickListener(){
 
             startActivity(contactIntent)
+            newscreen = true
             overridePendingTransition(R.anim.sliding_setting, R.anim.sliding_setting_out)
         }
 
@@ -89,6 +93,7 @@ class SettingScreen : AppCompatActivity() {
         aboutButton.setOnClickListener(){
 
             startActivity(aboutIntent)
+            newscreen = true
             overridePendingTransition(R.anim.sliding_setting, R.anim.sliding_setting_out)
         }
 
@@ -99,6 +104,7 @@ class SettingScreen : AppCompatActivity() {
         creditButton.setOnClickListener(){
 
             startActivity(creditIntent)
+            newscreen = true
             overridePendingTransition(R.anim.sliding_setting, R.anim.sliding_setting_out)
         }
 
@@ -127,4 +133,32 @@ class SettingScreen : AppCompatActivity() {
 
 
     }
+
+
+
+
+    @Override
+    override fun onStop() {
+        super.onStop()
+        if(newscreen == false) {
+            val svc = Intent(this, BackgroundSoundService::class.java)
+            stopService(svc)
+        }
+
+    }
+
+
+    @Override
+    override fun onStart() {
+
+        super.onStart()
+        var sharedPrefs : SharedPreferences = getSharedPreferences("music" , MODE_PRIVATE)
+        if(sharedPrefs.getBoolean("music" , true) == true) {
+            val svc = Intent(this, BackgroundSoundService::class.java)
+            startService(svc)
+        }
+
+    }
+
+
 }

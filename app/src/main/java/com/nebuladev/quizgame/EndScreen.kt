@@ -20,7 +20,7 @@ import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 class EndScreen : AppCompatActivity() {
 
 
-
+    private var newscreen = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -124,6 +124,7 @@ class EndScreen : AppCompatActivity() {
         mainMenu.setOnClickListener(){
             var intentMenu : Intent = Intent(this,LandingPage::class.java)
             startActivity(intentMenu)
+            newscreen = true
             overridePendingTransition(R.anim.landing_in, R.anim.setting_out_toleft)
 
         }
@@ -132,6 +133,7 @@ class EndScreen : AppCompatActivity() {
         settingsBtn.setOnClickListener(){
             var intentSetting : Intent = Intent(this, SettingScreen::class.java)
             startActivity(intentSetting)
+            newscreen = true
             overridePendingTransition(R.anim.sliding_setting, R.anim.sliding_setting_out)
         }
 
@@ -141,6 +143,7 @@ class EndScreen : AppCompatActivity() {
         playAgain.setOnClickListener(){
             var intentPlay : Intent = Intent(this,MainActivity::class.java)
             startActivity(intentPlay)
+            newscreen = true
             overridePendingTransition( R.anim.slide_down , R.anim.slide_up );
         }
 
@@ -170,7 +173,28 @@ class EndScreen : AppCompatActivity() {
         sharedPreferencesEditor.commit()
     }
 
+    @Override
+    override fun onStop() {
+        super.onStop()
+        if(newscreen == false) {
+            val svc = Intent(this, BackgroundSoundService::class.java)
+            stopService(svc)
+        }
 
+    }
+
+
+    @Override
+    override fun onStart() {
+
+        super.onStart()
+        var sharedPrefs : SharedPreferences = getSharedPreferences("music" , MODE_PRIVATE)
+        if(sharedPrefs.getBoolean("music" , true) == true) {
+            val svc = Intent(this, BackgroundSoundService::class.java)
+            startService(svc)
+        }
+
+    }
 
 
 }
