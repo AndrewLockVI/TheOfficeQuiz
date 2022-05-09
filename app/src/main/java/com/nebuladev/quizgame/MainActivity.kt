@@ -278,7 +278,19 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                     newscreen = true
                     overridePendingTransition(   R.anim.slide_from_top , R.anim.slide_from_top_down );
-                    minterstitialAd?.show(this@MainActivity)
+                    var sharedPreferences : SharedPreferences = getSharedPreferences("run" , MODE_PRIVATE)
+                    var sharedEdit : SharedPreferences.Editor = sharedPreferences.edit()
+                    if(sharedPreferences.getInt("run" , 0) >= 2)
+                    {
+                        minterstitialAd?.show(this@MainActivity)
+                        sharedEdit.putInt("run" , 0)
+                        sharedEdit.commit()
+                    }
+                    else
+                    {
+                        sharedEdit.putInt("run" , sharedPreferences.getInt("run" , 0) + 1)
+                        sharedEdit.commit()
+                    }
                 }
 
                 textOne.animate().apply {
