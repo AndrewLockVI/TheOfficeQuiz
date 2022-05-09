@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QuizGame</string>
+    <string name="app_name">Dunder Mifflin Infinity</string>
     <string name="question_text">"What is Kevin's favorite food?"</string>
     <string name="button_one">"Meatballs"</string>
     <string name="button_two">"Hot Dogs"</string>
