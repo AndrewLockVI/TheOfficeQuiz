@@ -9,12 +9,14 @@ import android.os.Handler
 import android.view.View
 import android.widget.Button
 import android.widget.Switch
+import androidx.appcompat.app.AppCompatDelegate
 
 class SettingScreen : AppCompatActivity() {
 
     private var newscreen = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_setting_screen)
         var sharedPrefs : SharedPreferences = getSharedPreferences("music" , MODE_PRIVATE)
         var sharedPrefsEdit : SharedPreferences.Editor = sharedPrefs.edit()
